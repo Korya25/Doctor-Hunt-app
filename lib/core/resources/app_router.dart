@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/resources/app_routes.dart';
+import 'package:doctor_hunt/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,7 +10,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.onboarding,
         name: AppRoutes.onboarding,
-        builder: (context, state) => Scaffold(),
+        builder: (context, state) => OnboardingView(),
       ),
       GoRoute(
         path: AppRoutes.home,
