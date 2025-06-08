@@ -62,8 +62,8 @@ class AppTextStyles {
     color: AppColors.secondaryTextColor,
   );
 
-  static TextStyle get rubik18MediumPrimary => _rubik(
-    fontSize: 18.sp,
+  static TextStyle get rubik15MediumPrimary => _rubik(
+    fontSize: 15.sp,
     weight: FontWeightType.medium,
     letterSpacing: -0.3,
     color: AppColors.primaryTextColor,

@@ -1,16 +1,16 @@
 import 'package:doctor_hunt/core/constant/app_assets.dart';
+import 'package:doctor_hunt/features/home/data/models/base_card_model.dart';
 import 'package:flutter/material.dart';
 
-class CategoryCardModel {
+class CategoryCardModel extends BaseCardModel {
   final String svgPath;
   final Gradient? gradient;
-  final VoidCallback onTap;
 
   CategoryCardModel({
     required this.gradient,
     required this.svgPath,
-    required this.onTap,
-  });
+    required VoidCallback onTap,
+  }) : super(onTap: onTap);
 
   static List<CategoryCardModel> categories = [
     CategoryCardModel(

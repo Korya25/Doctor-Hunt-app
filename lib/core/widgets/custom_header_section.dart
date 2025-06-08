@@ -20,7 +20,7 @@ class CustomHeaderSection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: AppTextStyles.rubik18MediumPrimary),
+        Text(title, style: AppTextStyles.rubik15MediumPrimary),
         Visibility(
           visible: activeSeeAll ?? false,
           child: Row(

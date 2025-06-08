@@ -3,31 +3,21 @@ import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/core/widgets/Cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/features/home/data/models/popular_doctor_card_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PopularDoctorCard extends StatelessWidget {
-  const PopularDoctorCard({
-    super.key,
-    required this.onTap,
-    required this.docName,
-    required this.docCategory,
-    required this.docImage,
-    required this.docRating,
-  });
+  const PopularDoctorCard({super.key, required this.popularDoctorCardModel});
 
-  final VoidCallback onTap;
-  final String docName;
-  final String docCategory;
-  final String docImage;
-  final double docRating;
+  final PopularDoctorCardModel popularDoctorCardModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: popularDoctorCardModel.onTap,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12.r),
         child: Material(
@@ -35,18 +25,20 @@ class PopularDoctorCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
           color: const Color.fromARGB(240, 255, 255, 255),
           child: SizedBox(
-            width: 180.w,
+            width: 150.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
                   height: 180.h,
-                  child: CachedNetworkImageWithShimmer(imageUrl: docImage),
+                  child: CachedNetworkImageWithShimmer(
+                    imageUrl: popularDoctorCardModel.docImage,
+                  ),
                 ),
                 PopularDoctorDetailCard(
-                  docName: docName,
-                  docCategory: docCategory,
-                  docRating: docRating,
+                  docName: popularDoctorCardModel.docName,
+                  docCategory: popularDoctorCardModel.docCategory,
+                  docRating: popularDoctorCardModel.docRating,
                 ),
               ],
             ),
@@ -80,7 +72,7 @@ class PopularDoctorDetailCard extends StatelessWidget {
         children: [
           Text(
             docName,
-            style: AppTextStyles.rubik18MediumPrimary,
+            style: AppTextStyles.rubik15MediumPrimary,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
