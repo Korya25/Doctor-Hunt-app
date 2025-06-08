@@ -21,8 +21,7 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 78.w,
-        height: 78.h,
+        width: 80.w,
         decoration: BoxDecoration(
           gradient: gradient,
           color: gradient == null ? fallbackColor : null,

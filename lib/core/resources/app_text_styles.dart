@@ -74,4 +74,25 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
+
+  static TextStyle get rubik10MediumSecondry => _rubik(
+    fontSize: 10.sp,
+    weight: FontWeightType.bold,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik12MediumSecondry => _rubik(
+    fontSize: 12.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik9Lighttertiary => _rubik(
+    fontSize: 9.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
 }
