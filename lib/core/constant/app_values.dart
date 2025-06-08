@@ -11,14 +11,9 @@ class AppPadding {
   static EdgeInsetsGeometry paddingH25 = EdgeInsetsGeometry.symmetric(
     horizontal: 25.w,
   );
-}
 
-class AppSize {
-  static double height(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  }
-
-  static double width(BuildContext context) {
-    return MediaQuery.of(context).size.width;
-  }
+  static EdgeInsetsGeometry paddingH8V8 = EdgeInsets.symmetric(
+    horizontal: 8.w,
+    vertical: 8.h,
+  );
 }
