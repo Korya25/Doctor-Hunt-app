@@ -76,7 +76,15 @@ class HomeView extends StatelessWidget {
                   itemCount: CategoryCardModel.categories.length,
                   itemBuilder: (context, index) {
                     final category = CategoryCardModel.categories[index];
-                    return CategoryCard(cardModel: category);
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
+                          AppRoutes.findDoctor,
+                          extra: category,
+                        );
+                      },
+                      child: CategoryCard(cardModel: category),
+                    );
                   },
                 ),
               ),

@@ -6,6 +6,9 @@ class DoctorModel {
   final double price;
   final double rating;
   final int ratingCount;
+  final int yearsExperience;
+  final int patientStories;
+  final String nextAvailable;
 
   DoctorModel({
     required this.id,
@@ -15,5 +18,8 @@ class DoctorModel {
     required this.price,
     required this.rating,
     required this.ratingCount,
+    required this.yearsExperience,
+    required this.patientStories,
+    required this.nextAvailable,
   });
 }
