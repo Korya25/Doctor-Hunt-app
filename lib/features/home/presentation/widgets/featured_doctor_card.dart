@@ -1,9 +1,11 @@
+import 'package:doctor_hunt/core/constant/app_assets.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/core/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FeaturedDoctorCard extends StatelessWidget {
   const FeaturedDoctorCard({super.key, required this.doctorModel});
@@ -19,9 +21,9 @@ class FeaturedDoctorCard extends StatelessWidget {
         child: Material(
           elevation: 10,
           child: SizedBox(
-            width: 140,
+            width: 120.w,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               child: Column(
                 spacing: 10.h,
                 children: [
@@ -31,9 +33,13 @@ class FeaturedDoctorCard extends StatelessWidget {
                     children: [
                       FavoriteButton(),
                       Row(
-                        spacing: 3.w,
+                        spacing: 5.w,
                         children: [
-                          Icon(Icons.star, color: Colors.amber, size: 20),
+                          SvgPicture.asset(
+                            AppIconsSvgs.star,
+                            height: 13,
+                            width: 13,
+                          ),
                           Text(
                             doctorModel.rating.toString(),
                             style: AppTextStyles.rubik10MediumSecondry,
@@ -43,22 +49,32 @@ class FeaturedDoctorCard extends StatelessWidget {
                     ],
                   ),
                   // Image
-                  ClipOval(
-                    child: CachedNetworkImageWithShimmer(
-                      imageUrl: doctorModel.image,
+                  Flexible(
+                    child: SizedBox(
+                      height: 60.h,
+                      width: 60.h,
+                      child: ClipOval(
+                        child: CachedNetworkImageWithShimmer(
+                          imageUrl: doctorModel.image,
+                        ),
+                      ),
                     ),
                   ),
 
-                  // Name
-                  Text(
-                    doctorModel.name,
-                    style: AppTextStyles.rubik12MediumSecondry,
-                  ),
+                  Column(
+                    children: [
+                      // Name
+                      Text(
+                        doctorModel.name,
+                        style: AppTextStyles.rubik12MediumSecondry,
+                      ),
 
-                  // price of Hour
-                  Text(
-                    '${doctorModel.price}/ hours',
-                    style: AppTextStyles.rubik9Lighttertiary,
+                      // price of Hour
+                      Text(
+                        '${doctorModel.price}/ hours',
+                        style: AppTextStyles.rubik9Lighttertiary,
+                      ),
+                    ],
                   ),
                 ],
               ),

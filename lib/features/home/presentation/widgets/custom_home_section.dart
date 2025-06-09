@@ -17,9 +17,10 @@ class CustomHomeSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10.h),
+          SizedBox(height: 12.h),
           headerSection,
-          SizedBox(height: 10.h),
+          SizedBox(height: 12.h),
+
           horizontallistView,
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/features/home/data/models/chat_message_model.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/header_live_chat.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/message_list_live_chat.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/send_meesage_field.dart';
@@ -8,7 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorLiveChatView extends StatefulWidget {
-  const DoctorLiveChatView({super.key, required this.doctorModel});
+  const DoctorLiveChatView({
+    super.key,
+    required this.doctorModel,
+    required this.user,
+  });
+  final FakeUser user;
   final DoctorModel doctorModel;
 
   @override
@@ -54,7 +60,7 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
                 Expanded(
                   child: MessageListLiveChats(
                     messages: messages,
-                    doctorModel: widget.doctorModel,
+                    user: widget.user,
                   ),
                 ),
                 SendMessageField(

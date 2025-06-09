@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/features/home/data/models/chat_message_model.dart';
-import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/chat_comment_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,11 +8,11 @@ class MessageListLiveChats extends StatelessWidget {
   const MessageListLiveChats({
     super.key,
     required this.messages,
-    required this.doctorModel,
+    required this.user,
   });
 
   final List<ChatMessage> messages;
-  final DoctorModel doctorModel;
+  final FakeUser user;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,10 @@ class MessageListLiveChats extends StatelessWidget {
         final message = messages[index];
 
         if (message.isDoctor) {
-          return ChatCommentCard(
-            doctorModel: doctorModel,
-            message: message.text,
-          );
+          return ChatCommentCard(fakeUser: user, message: message.text);
         }
 
-        return ChatCommentCard(doctorModel: doctorModel, message: message.text);
+        return ChatCommentCard(fakeUser: user, message: message.text);
       },
     );
   }

@@ -4,8 +4,9 @@ import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/widgets/background_scaffold.dart';
 import 'package:doctor_hunt/core/widgets/custom_header_section.dart';
 import 'package:doctor_hunt/core/widgets/custom_horizontal_list_view.dart';
-import 'package:doctor_hunt/features/home/data/doctor_data.dart';
+import 'package:doctor_hunt/features/home/data/test_data/doctor_data.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
+import 'package:doctor_hunt/features/home/data/test_data/fake_users.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/category_card.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/custom_home_section.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/featured_doctor_card.dart';
@@ -33,9 +34,8 @@ class HomeView extends StatelessWidget {
                 height: 190.h,
                 width: double.infinity,
                 child: HomeHeader(
-                  userName: 'Korya',
-                  userImage:
-                      'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                  userName: fakeUsers[0].name,
+                  userImage: fakeUsers[0].imageUrl,
                 ),
               ),
             ),
@@ -55,7 +55,7 @@ class HomeView extends StatelessWidget {
                       onTap: () {
                         context.pushNamed(
                           AppRoutes.doctorLiveChat,
-                          extra: doctorModel,
+                          extra: {'doctor': doctorModel, 'user': fakeUsers[0]},
                         );
                       },
                       child: LiveDoctorCard(doctorModel: doctorModel),
@@ -65,14 +65,14 @@ class HomeView extends StatelessWidget {
               ),
             ),
 
-            SliverToBoxAdapter(child: SizedBox(height: 20.h)),
+            SliverToBoxAdapter(child: SizedBox(height: 28.h)),
 
             // Categories
             SliverToBoxAdapter(
               child: Padding(
                 padding: AppPadding.paddingH20,
                 child: CustomHorizontalListView(
-                  height: 70.h,
+                  height: 85.h,
                   itemCount: CategoryCardModel.categories.length,
                   itemBuilder: (context, index) {
                     final category = CategoryCardModel.categories[index];
@@ -81,6 +81,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
             ),
+            SliverToBoxAdapter(child: SizedBox(height: 18.h)),
 
             // Popular Doctors
             SliverToBoxAdapter(
@@ -91,7 +92,7 @@ class HomeView extends StatelessWidget {
                   onSeeAllPressed: () => debugPrint("See all popular doctors"),
                 ),
                 horizontallistView: CustomHorizontalListView(
-                  height: 280.h,
+                  height: 270.h,
                   itemCount: DoctorData.popularDoctors.length,
                   itemBuilder: (context, index) {
                     final doctorModel = DoctorData.popularDoctors[index];
@@ -113,7 +114,7 @@ class HomeView extends StatelessWidget {
                         debugPrint("See all featured doctors"),
                   ),
                   horizontallistView: CustomHorizontalListView(
-                    height: 200.h,
+                    height: 170.h,
                     itemCount: DoctorData.featuredDoctors.length,
                     itemBuilder: (context, index) {
                       final doctorModel = DoctorData.featuredDoctors[index];

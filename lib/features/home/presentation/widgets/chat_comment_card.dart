@@ -1,17 +1,17 @@
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/core/widgets/cached_network_image_with_shimmer.dart';
-import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatCommentCard extends StatelessWidget {
   const ChatCommentCard({
     super.key,
-    required this.doctorModel,
+    required this.fakeUser,
     required this.message,
   });
 
-  final DoctorModel doctorModel;
+  final FakeUser fakeUser;
   final String message;
 
   @override
@@ -22,7 +22,7 @@ class ChatCommentCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipOval(
-            child: CachedNetworkImageWithShimmer(imageUrl: doctorModel.image),
+            child: CachedNetworkImageWithShimmer(imageUrl: fakeUser.imageUrl),
           ),
           SizedBox(width: 12.w),
           Flexible(
@@ -31,7 +31,7 @@ class ChatCommentCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  doctorModel.name,
+                  fakeUser.name,
                   style: AppTextStyles.rubik18MediumSecondary,
                 ),
                 SizedBox(height: 4.h),
