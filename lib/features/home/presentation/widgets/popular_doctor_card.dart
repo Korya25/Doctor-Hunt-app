@@ -3,21 +3,21 @@ import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/core/widgets/Cached_network_image_with_shimmer.dart';
-import 'package:doctor_hunt/features/home/data/models/popular_doctor_card_model.dart';
+import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PopularDoctorCard extends StatelessWidget {
-  const PopularDoctorCard({super.key, required this.popularDoctorCardModel});
+  const PopularDoctorCard({super.key, required this.doctorModel});
 
-  final PopularDoctorCardModel popularDoctorCardModel;
+  final DoctorModel doctorModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: popularDoctorCardModel.onTap,
+      onTap: () {},
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12.r),
         child: Material(
@@ -32,13 +32,13 @@ class PopularDoctorCard extends StatelessWidget {
                 SizedBox(
                   height: 180.h,
                   child: CachedNetworkImageWithShimmer(
-                    imageUrl: popularDoctorCardModel.docImage,
+                    imageUrl: doctorModel.image,
                   ),
                 ),
                 PopularDoctorDetailCard(
-                  docName: popularDoctorCardModel.docName,
-                  docCategory: popularDoctorCardModel.docCategory,
-                  docRating: popularDoctorCardModel.docRating,
+                  docName: doctorModel.name,
+                  docCategory: doctorModel.category,
+                  docRating: doctorModel.rating,
                 ),
               ],
             ),

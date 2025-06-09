@@ -10,7 +10,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: cardModel.onTap,
+      onTap: () {},
       child: Container(
         width: 80.w,
         decoration: BoxDecoration(

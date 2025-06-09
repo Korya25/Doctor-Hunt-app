@@ -25,4 +25,7 @@ class AppString {
   static const String popularDoctors = 'Popular Doctors';
   static const String featureDoctor = 'Feature Doctor';
   static const String seeAll = 'See All';
+
+  // Live Chat
+  static const String sendCommentHint = "Add a Comment.....";
 }

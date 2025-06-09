@@ -1,6 +1,8 @@
 import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/widgets/background_scaffold.dart';
 import 'package:doctor_hunt/core/widgets/custom_bottom_nav_bar.dart';
+import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/home/presentation/views/doctor_Live_chat_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/home_view.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
@@ -96,6 +98,15 @@ class AppRouter {
         name: AppRoutes.onboarding,
         builder: (context, state) => const OnboardingView(),
       ),
+
+      GoRoute(
+        path: AppRoutes.doctorLiveChat,
+        name: AppRoutes.doctorLiveChat,
+
+        builder: (context, state) =>
+            DoctorLiveChatView(doctorModel: state.extra as DoctorModel),
+      ),
+
       ShellRoute(
         builder: (context, state, child) =>
             MainShell(location: state.uri.toString(), child: child),

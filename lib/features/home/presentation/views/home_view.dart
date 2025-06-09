@@ -1,12 +1,11 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/widgets/background_scaffold.dart';
 import 'package:doctor_hunt/core/widgets/custom_header_section.dart';
 import 'package:doctor_hunt/core/widgets/custom_horizontal_list_view.dart';
+import 'package:doctor_hunt/features/home/data/doctor_data.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
-import 'package:doctor_hunt/features/home/data/models/featured_card_model.dart';
-import 'package:doctor_hunt/features/home/data/models/popular_doctor_card_model.dart';
-import 'package:doctor_hunt/features/home/data/models/live_doctor_card_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/category_card.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/custom_home_section.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/featured_doctor_card.dart';
@@ -15,6 +14,7 @@ import 'package:doctor_hunt/features/home/presentation/widgets/live_doctor_card.
 import 'package:doctor_hunt/features/home/presentation/widgets/popular_doctor_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -34,7 +34,8 @@ class HomeView extends StatelessWidget {
                 width: double.infinity,
                 child: HomeHeader(
                   userName: 'Korya',
-                  userImage: 'https://example.com/user.jpg',
+                  userImage:
+                      'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
                 ),
               ),
             ),
@@ -47,12 +48,17 @@ class HomeView extends StatelessWidget {
                 ),
                 horizontallistView: CustomHorizontalListView(
                   height: 170.h,
-                  itemCount: LiveDoctorCardModel.liveDoctorCardModels.length,
+                  itemCount: DoctorData.liveDoctors.length,
                   itemBuilder: (context, index) {
-                    final liveDoctorCardModel =
-                        LiveDoctorCardModel.liveDoctorCardModels[index];
-                    return LiveDoctorCard(
-                      liveDoctorCardModel: liveDoctorCardModel,
+                    final doctorModel = DoctorData.liveDoctors[index];
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
+                          AppRoutes.doctorLiveChat,
+                          extra: doctorModel,
+                        );
+                      },
+                      child: LiveDoctorCard(doctorModel: doctorModel),
                     );
                   },
                 ),
@@ -86,10 +92,10 @@ class HomeView extends StatelessWidget {
                 ),
                 horizontallistView: CustomHorizontalListView(
                   height: 280.h,
-                  itemCount: PopularDoctorCardModel.popularDoctors.length,
+                  itemCount: DoctorData.popularDoctors.length,
                   itemBuilder: (context, index) {
-                    final doctor = PopularDoctorCardModel.popularDoctors[index];
-                    return PopularDoctorCard(popularDoctorCardModel: doctor);
+                    final doctorModel = DoctorData.popularDoctors[index];
+                    return PopularDoctorCard(doctorModel: doctorModel);
                   },
                 ),
               ),
@@ -108,10 +114,10 @@ class HomeView extends StatelessWidget {
                   ),
                   horizontallistView: CustomHorizontalListView(
                     height: 200.h,
-                    itemCount: FeaturedCardModel.featuredDoctors.length,
+                    itemCount: DoctorData.featuredDoctors.length,
                     itemBuilder: (context, index) {
-                      final doctor = FeaturedCardModel.featuredDoctors[index];
-                      return FeaturedDoctorCard(featuredCardModel: doctor);
+                      final doctorModel = DoctorData.featuredDoctors[index];
+                      return FeaturedDoctorCard(doctorModel: doctorModel);
                     },
                   ),
                 ),

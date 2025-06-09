@@ -34,6 +34,12 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
+  static TextStyle get rubik14LightTiary => _rubik(
+    fontSize: 14.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
 
   // Buttons
   static TextStyle get rubik18MediumSecondary => _rubik(
@@ -94,5 +100,12 @@ class AppTextStyles {
     weight: FontWeightType.light,
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
+  );
+
+  static TextStyle get rubik14LightSecondary => _rubik(
+    fontSize: 14.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.secondaryTextColor,
   );
 }

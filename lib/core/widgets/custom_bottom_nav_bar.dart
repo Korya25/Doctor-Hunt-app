@@ -1,5 +1,7 @@
+import 'package:doctor_hunt/core/constant/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -12,10 +14,10 @@ class CustomBottomNavBar extends StatelessWidget {
   });
 
   static const _icons = [
-    Icons.home,
-    Icons.favorite,
-    Icons.menu_book_outlined,
-    Icons.message,
+    AppIconsSvgs.homeBottomNavBar,
+    AppIconsSvgs.heartBottomNavBar,
+    AppIconsSvgs.bookBottomNavBar,
+    AppIconsSvgs.meesageBottomNabBar,
   ];
 
   @override
@@ -25,14 +27,14 @@ class CustomBottomNavBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20.r),
-          topRight: Radius.circular(20.r),
+          topLeft: Radius.circular(25.r),
+          topRight: Radius.circular(25.r),
         ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
             blurRadius: 10.r,
-            offset: Offset(0, -2),
+            offset: const Offset(0, -2),
           ),
         ],
       ),
@@ -44,15 +46,19 @@ class CustomBottomNavBar extends StatelessWidget {
           return GestureDetector(
             onTap: () => onTap(index),
             child: Container(
-              padding: EdgeInsets.all(8.r),
+              padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: isSelected ? Colors.green : Colors.transparent,
               ),
-              child: Icon(
+              child: SvgPicture.asset(
                 _icons[index],
-                color: isSelected ? Colors.white : Colors.grey,
-                size: 28.sp,
+                colorFilter: ColorFilter.mode(
+                  isSelected ? Colors.white : Colors.grey,
+                  BlendMode.srcIn,
+                ),
+                width: 23.w,
+                height: 20.h,
               ),
             ),
           );
