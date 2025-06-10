@@ -5,6 +5,7 @@ import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 import 'package:doctor_hunt/features/home/presentation/views/doctor_Live_chat_view.dart';
+import 'package:doctor_hunt/features/home/presentation/views/featured_doctor_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/find_doctor_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/home_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/popular_doctor_view.dart';
@@ -140,6 +141,15 @@ class AppRouter {
 
         builder: (context, state) {
           return PopularDoctorView();
+        },
+      ),
+
+      GoRoute(
+        path: AppRoutes.featuredDoctors,
+        name: AppRoutes.featuredDoctors,
+
+        builder: (context, state) {
+          return FeaturedDoctorView();
         },
       ),
       ShellRoute(

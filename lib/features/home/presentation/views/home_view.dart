@@ -120,8 +120,9 @@ class HomeView extends StatelessWidget {
                   headerSection: CustomHeaderSection(
                     title: AppString.featureDoctor,
                     activeSeeAll: true,
-                    onSeeAllPressed: () =>
-                        debugPrint("See all featured doctors"),
+                    onSeeAllPressed: () {
+                      context.pushNamed(AppRoutes.featuredDoctors);
+                    },
                   ),
                   horizontallistView: CustomHorizontalListView(
                     height: 170.h,

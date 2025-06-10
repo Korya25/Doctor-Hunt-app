@@ -5,4 +5,5 @@ class AppRoutes {
   static const String findDoctor = '/findDoctor';
   static const String selectMe = '/selectMe';
   static const String popularDoctors = '/popularDoctors';
+  static const String featuredDoctors = '/featuredDoctors';
 }
