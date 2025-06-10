@@ -221,7 +221,7 @@ class DoctorData {
       name: 'Dr. Yamen Rashed',
       category: 'Body Surgeon',
       image:
-          'https://cdn.pixabay.com/photo/2020/06/20/15/30/woman-doctor-5321351_1280.jpg',
+          'https://cdn.pixabay.com/photo/2017/05/23/17/12/doctor-2337835_1280.jpg',
       price: 210.0,
       rating: 4.9,
       ratingCount: 200,
@@ -247,7 +247,7 @@ class DoctorData {
       name: 'Dr. Osama Sami',
       category: 'Heart Surgeon',
       image:
-          'https://cdn.pixabay.com/photo/2020/06/20/15/30/woman-doctor-5321351_1280.jpg',
+          'https://cdn.pixabay.com/photo/2017/05/23/17/12/doctor-2337835_1280.jpg',
       price: 230.0,
       rating: 4.8,
       ratingCount: 190,

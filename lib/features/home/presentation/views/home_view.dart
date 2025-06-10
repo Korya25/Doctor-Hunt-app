@@ -97,7 +97,9 @@ class HomeView extends StatelessWidget {
                 headerSection: CustomHeaderSection(
                   title: AppString.popularDoctors,
                   activeSeeAll: true,
-                  onSeeAllPressed: () => debugPrint("See all popular doctors"),
+                  onSeeAllPressed: () {
+                    context.pushNamed(AppRoutes.popularDoctors);
+                  },
                 ),
                 horizontallistView: CustomHorizontalListView(
                   height: 270.h,

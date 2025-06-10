@@ -17,27 +17,30 @@ class CustomHeaderSection extends StatelessWidget {
   final VoidCallback? onSeeAllPressed;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(title, style: AppTextStyles.rubik15MediumPrimary),
-        Visibility(
-          visible: activeSeeAll ?? false,
-          child: Row(
-            children: [
-              Text(AppString.seeAll, style: AppTextStyles.rubik12LightTertiary),
-              GestureDetector(
-                onTap: onSeeAllPressed,
-                child: Icon(
+    return GestureDetector(
+      onTap: onSeeAllPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title, style: AppTextStyles.rubik15MediumPrimary),
+          Visibility(
+            visible: activeSeeAll ?? false,
+            child: Row(
+              children: [
+                Text(
+                  AppString.seeAll,
+                  style: AppTextStyles.rubik12LightTertiary,
+                ),
+                Icon(
                   Icons.arrow_forward_ios,
                   size: 13.w,
                   color: AppColors.tertiaryTextColor.withAlpha(150),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
