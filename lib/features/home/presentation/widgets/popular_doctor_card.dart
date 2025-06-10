@@ -4,6 +4,7 @@ import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/core/widgets/Cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/home/presentation/widgets/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -81,17 +82,7 @@ class PopularDoctorDetailCard extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          RatingBarIndicator(
-            rating: docRating,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 5,
-            itemSize: 13.sp,
-            itemBuilder: (context, index) => SvgPicture.asset(
-              AppIconsSvgs.star,
-              width: 13.sp,
-              height: 13.sp,
-            ),
-          ),
+          CustomRatingBar(rating: docRating),
         ],
       ),
     );

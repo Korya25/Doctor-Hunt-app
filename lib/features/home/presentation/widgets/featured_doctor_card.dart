@@ -66,7 +66,7 @@ class FeaturedDoctorCard extends StatelessWidget {
                       // Name
                       Text(
                         doctorModel.name,
-                        style: AppTextStyles.rubik12MediumSecondry,
+                        style: AppTextStyles.rubik12MediumPrimary,
                       ),
 
                       // price of Hour

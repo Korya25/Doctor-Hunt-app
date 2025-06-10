@@ -3,4 +3,5 @@ class AppRoutes {
   static const String home = '/home';
   static const String doctorLiveChat = '/doctorLiveChat';
   static const String findDoctor = '/findDoctor';
+  static const String selectMe = '/selectMe';
 }

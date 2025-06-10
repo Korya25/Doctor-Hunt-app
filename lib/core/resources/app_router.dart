@@ -7,6 +7,7 @@ import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 import 'package:doctor_hunt/features/home/presentation/views/doctor_Live_chat_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/find_doctor_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/home_view.dart';
+import 'package:doctor_hunt/features/home/presentation/views/select_me_view.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -124,7 +125,14 @@ class AppRouter {
           );
         },
       ),
+      GoRoute(
+        path: AppRoutes.selectMe,
+        name: AppRoutes.selectMe,
 
+        builder: (context, state) {
+          return SelectMeView(doctor: state.extra as DoctorModel);
+        },
+      ),
       ShellRoute(
         builder: (context, state, child) =>
             MainShell(location: state.uri.toString(), child: child),
