@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/core/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/widgets/custom_buttom.dart';
@@ -7,6 +8,7 @@ import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class FindDoctorCard extends StatelessWidget {
   const FindDoctorCard({super.key, required this.doctorModel});
@@ -91,6 +93,9 @@ class FindDoctorCardContent extends StatelessWidget {
                   title: AppString.bookNow,
                   textStyle: AppTextStyles.rubik12MediumSecondry,
                   borderRadius: 4.r,
+                  onTap: () {
+                    context.pushNamed(AppRoutes.selectMe, extra: doctorModel);
+                  },
                 ),
               ],
             ),
