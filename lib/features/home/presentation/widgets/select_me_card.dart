@@ -19,51 +19,56 @@ class SelectMeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         color: AppColors.secondaryColor,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          // Doctor Image
-          SizedBox(
-            width: 80.w,
-            height: 80.h,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(4.r),
-              child: CachedNetworkImageWithShimmer(imageUrl: doctor.image),
-            ),
-          ),
-          SizedBox(width: 10.w),
-
-          // Doctor Info
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Doctor Name
-                Text(
-                  doctor.name,
-                  style: AppTextStyles.rubik16MediumPrimary,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+          Row(
+            spacing: 12.w,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Image
+              SizedBox(
+                width: 80.w,
+                height: 80.h,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4.r),
+                  child: CachedNetworkImageWithShimmer(imageUrl: doctor.image),
                 ),
-                SizedBox(height: 4.h),
+              ),
 
-                // Doctor Category
-                Text(
-                  doctor.category,
-                  style: AppTextStyles.rubik12LightTertiary,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+              //  doctor details
+              Expanded(
+                child: Column(
+                  spacing: 8.h,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // name
+                    Text(
+                      doctor.name,
+                      style: AppTextStyles.rubik16MediumPrimary,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                    // category
+                    Text(
+                      doctor.category,
+                      style: AppTextStyles.rubik12LightTertiary,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                    // Custom rating bar
+                    CustomRatingBar(rating: doctor.rating),
+                  ],
                 ),
-                SizedBox(height: 8.h),
-
-                // Rating Bar
-                CustomRatingBar(rating: doctor.rating),
-              ],
-            ),
+              ),
+            ],
           ),
-
-          // Favorite Button
-          FavoriteButton(height: 20.h, width: 20.w),
+          // Favorite
+          Align(
+            alignment: Alignment.topRight,
+            child: FavoriteButton(height: 20.h, width: 20.w),
+          ),
         ],
       ),
     );

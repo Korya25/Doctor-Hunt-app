@@ -466,4 +466,16 @@ class DoctorData {
     '6:30 PM',
     '7:00 PM',
   ];
+  static String getSlotsAvailableText(int index) {
+    switch (index) {
+      case 0:
+        return 'No slots available';
+      case 1:
+        return '9 slots available';
+      case 2:
+        return '10 slots available';
+      default:
+        return '';
+    }
+  }
 }

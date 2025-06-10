@@ -134,6 +134,13 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.primaryColor,
   );
+
+  static TextStyle get rubik13MediumMainprimary => _rubik(
+    fontSize: 13.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryColor,
+  );
   static TextStyle get rubik13MediumMainPrimairy => _rubik(
     fontSize: 13.sp,
     weight: FontWeightType.medium,
