@@ -94,6 +94,7 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
+                  // ignore: deprecated_member_use
                   colors: [Colors.black.withOpacity(0.8), Colors.transparent],
                 ),
               ),

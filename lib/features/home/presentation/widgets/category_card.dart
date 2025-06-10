@@ -13,6 +13,7 @@ class CategoryCard extends StatelessWidget {
       width: 80.w,
       decoration: BoxDecoration(
         gradient: cardModel.gradient,
+        // ignore: use_full_hex_values_for_flutter_colors
         color: cardModel.gradient == null ? Color(0xfffffff) : null,
         borderRadius: BorderRadius.circular(10.r),
       ),

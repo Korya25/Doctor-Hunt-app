@@ -199,6 +199,7 @@ class TimeSlot extends StatelessWidget {
           boxShadow: [
             if (isSelected)
               BoxShadow(
+                // ignore: deprecated_member_use
                 color: AppColors.primaryColor.withOpacity(0.2),
                 blurRadius: 4,
               ),

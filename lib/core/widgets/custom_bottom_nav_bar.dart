@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:doctor_hunt/core/constant/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

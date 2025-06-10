@@ -24,80 +24,127 @@ class FindDoctorCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.r),
         ),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
-        child: Column(
-          children: [
-            _buildDoctorInfoRow(),
-            SizedBox(height: 12.h),
-            _buildBottomActionRow(),
-          ],
-        ),
+
+        // Card content
+        child: FindDoctorCardContent(doctorModel: doctorModel),
       ),
     );
   }
+}
 
-  Widget _buildDoctorInfoRow() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+class FindDoctorCardContent extends StatelessWidget {
+  const FindDoctorCardContent({super.key, required this.doctorModel});
+  final DoctorModel doctorModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
       children: [
-        // Doctor Image
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8.r),
-          child: CachedNetworkImageWithShimmer(
-            imageUrl: doctorModel.image,
-            height: 87.h,
-            width: 92.w,
-          ),
+        //  doctor image & details
+        Column(
+          spacing: 8.h,
+          children: [
+            Row(
+              spacing: 12.w,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Doctor image
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.r),
+                  child: CachedNetworkImageWithShimmer(
+                    imageUrl: doctorModel.image,
+                    height: 87.h,
+                    width: 92.w,
+                  ),
+                ),
+
+                // Doctor details
+                DoctorDetail(doctorModel: doctorModel),
+              ],
+            ),
+
+            // next available time & book button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Next available time
+                Column(
+                  spacing: 4.h,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppString.nextAvailable,
+                      style: AppTextStyles.rubik13MediumMainPrimairy,
+                    ),
+
+                    // Next available value
+                    Text(
+                      doctorModel.nextAvailable,
+                      style: AppTextStyles.rubik12MediumTertiary,
+                    ),
+                  ],
+                ),
+                // Book now button
+                CustomButtom(
+                  height: 45.h,
+                  width: 100.w,
+                  title: AppString.bookNow,
+                  textStyle: AppTextStyles.rubik12MediumSecondry,
+                  borderRadius: 4.r,
+                ),
+              ],
+            ),
+          ],
         ),
-
-        SizedBox(width: 12.w),
-
-        // Doctor Details
-        Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    doctorModel.name,
-                    style: AppTextStyles.rubik18MediumPrimariy,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(height: 4.h),
-                  Text(
-                    doctorModel.category,
-                    style: AppTextStyles.rubik13RegularMainPrimairy,
-                  ),
-                  SizedBox(height: 4.h),
-                  Text(
-                    '${doctorModel.yearsExperience} ${AppString.yearsExperience}',
-                    style: AppTextStyles.rubik12LightTertiary,
-                  ),
-                  SizedBox(height: 8.h),
-                  _buildRatingAndPatientStories(),
-                ],
-              ),
-
-              // Heart Icon
-              FavoriteButton(height: 25.h, width: 25.w),
-            ],
-          ),
+        // Favorite button
+        Align(
+          alignment: Alignment.topRight,
+          child: FavoriteButton(height: 22.h, width: 22.w),
         ),
       ],
     );
   }
+}
 
-  Widget _buildRatingAndPatientStories() {
-    return Row(
-      spacing: 20.w,
+class DoctorDetail extends StatelessWidget {
+  const DoctorDetail({super.key, required this.doctorModel});
+  final DoctorModel doctorModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildInfoItem(icon: Icons.circle, value: '${doctorModel.rating}'),
-        _buildInfoItem(
-          icon: Icons.circle,
-          value: '${doctorModel.patientStories} ${AppString.patientStories}',
+        //  name
+        Text(
+          doctorModel.name,
+          style: AppTextStyles.rubik18MediumPrimariy,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        //  category
+        Text(
+          doctorModel.category,
+          style: AppTextStyles.rubik13RegularMainPrimairy,
+        ),
+        //  experience
+        Text(
+          '${doctorModel.yearsExperience} ${AppString.yearsExperience}',
+          style: AppTextStyles.rubik12LightTertiary,
+        ),
+        //  rating & patient stories
+        Row(
+          spacing: 20.w,
+
+          children: [
+            _buildInfoItem(icon: Icons.circle, value: '${doctorModel.rating}'),
+
+            _buildInfoItem(
+              icon: Icons.circle,
+              value:
+                  '${doctorModel.patientStories} ${AppString.patientStories}',
+            ),
+          ],
         ),
       ],
     );
@@ -109,39 +156,6 @@ class FindDoctorCard extends StatelessWidget {
         Icon(icon, size: 18.h, color: AppColors.primaryColor),
         SizedBox(width: 4.w),
         Text(value, style: AppTextStyles.rubik12LightTertiary),
-      ],
-    );
-  }
-
-  Widget _buildBottomActionRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _buildNextAvailable(),
-        CustomButtom(
-          height: 45.h,
-          width: 100.w,
-          title: AppString.bookNow,
-          textStyle: AppTextStyles.rubik12MediumSecondry,
-          borderRadius: 4.r,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildNextAvailable() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppString.nextAvailable,
-          style: AppTextStyles.rubik13MediumMainPrimairy,
-        ),
-        SizedBox(height: 4.h),
-        Text(
-          doctorModel.nextAvailable,
-          style: AppTextStyles.rubik12MediumTertiary,
-        ),
       ],
     );
   }
