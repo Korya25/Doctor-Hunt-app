@@ -1,7 +1,9 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
-import 'package:doctor_hunt/features/auth/presentation/widgets/agree_terms.dart';
+import 'package:doctor_hunt/core/utils/validators.dart';
+import 'package:doctor_hunt/features/auth/presentation/controllers/form_controller.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -11,59 +13,43 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: FormController.signUpformKey,
       child: Column(
+        spacing: 20.h,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // name
           AuthTextFormFieldWidget(
-            hintText: 'Name',
-            controller: TextEditingController(),
+            hintText: AppString.name,
+            controller: FormController.nameController,
             textCapitalization: TextCapitalization.words,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your name';
-              }
-              return null;
-            },
+            validator: Validators.validateName,
           ),
-          const SizedBox(height: 16),
+
+          // email
           AuthTextFormFieldWidget(
-            hintText: 'Email',
-            controller: TextEditingController(),
+            hintText: AppString.email,
+            controller: FormController.signUpEmailController,
             keyboardType: TextInputType.emailAddress,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your email';
-              }
-              if (!RegExp(
-                r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-              ).hasMatch(value)) {
-                return 'Please enter a valid email';
-              }
-              return null;
-            },
+            validator: Validators.validateEmail,
           ),
-          const SizedBox(height: 16),
+
+          // password
           AuthTextFormFieldWidget(
-            hintText: 'Password',
-            controller: TextEditingController(),
+            hintText: AppString.password,
+            controller: FormController.signUpPasswordController,
             obscureText: true,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your password';
-              }
-              if (value.length < 6) {
-                return 'Password must be at least 6 characters';
-              }
-              return null;
-            },
+            validator: Validators.validatePassword,
           ),
-          const SizedBox(height: 32),
-          ElevatedButton(
+
+          // Agree Terms
+          // AgreeTerms(),
+
+          // Signup Button
+          /*   ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 ScaffoldMessenger.of(
@@ -83,28 +69,9 @@ class _SignupFormState extends State<SignupForm> {
               'Submit',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
-          ),
+          ),*/
         ],
       ),
     );
-
-    /*Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          // name
-         
-
-          // email
-
-          // password
-
-          // Terms
-          //AgreeTerms(),
-
-          // Signup Button
-        ],
-      ),
-    );*/
   }
 }
