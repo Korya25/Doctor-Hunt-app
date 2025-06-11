@@ -22,7 +22,10 @@ class LoginView extends StatelessWidget {
             child: Column(
               children: [
                 // ViewMessage
-                // ViewMessage(),
+                ViewMessage(
+                  title: AppString.loginTitle,
+                  subtitle: AppString.loginSubtitle,
+                ),
 
                 // Social Buttons
                 // SocialButtons(),

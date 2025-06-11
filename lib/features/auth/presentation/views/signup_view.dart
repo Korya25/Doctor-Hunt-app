@@ -22,7 +22,10 @@ class SignupView extends StatelessWidget {
             child: Column(
               children: [
                 // ViewMessage
-                // ViewMessage(),
+                ViewMessage(
+                  title: AppString.signUpTitle,
+                  subtitle: AppString.signUpSubtitle,
+                ),
 
                 // Social Buttons
                 // SocialButtons(),

@@ -168,4 +168,19 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
+
+  // Auth
+  static TextStyle get rubik24MediumPrimary => _rubik(
+    fontSize: 24.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik14RegularPrimary => _rubik(
+    fontSize: 14.sp,
+    weight: FontWeightType.regular,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
 }
