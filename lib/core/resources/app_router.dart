@@ -1,5 +1,7 @@
 import 'package:doctor_hunt/core/presentation/views/main_view.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
+import 'package:doctor_hunt/features/auth/presentation/views/login_view.dart';
+import 'package:doctor_hunt/features/auth/presentation/views/signup_view.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
@@ -21,6 +23,17 @@ class AppRouter {
         path: AppRoutes.onboarding,
         name: AppRoutes.onboarding,
         builder: (context, state) => const OnboardingView(),
+      ),
+      // sign up & login routes
+      GoRoute(
+        path: AppRoutes.signupView,
+        name: AppRoutes.signupView,
+        builder: (context, state) => const SignupView(),
+      ),
+      GoRoute(
+        path: AppRoutes.loginView,
+        name: AppRoutes.loginView,
+        builder: (context, state) => const LoginView(),
       ),
 
       GoRoute(
