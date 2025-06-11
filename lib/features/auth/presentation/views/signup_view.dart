@@ -23,26 +23,18 @@ class SignupView extends StatelessWidget {
             padding: AppPadding.paddingH20V20,
             child: Column(
               children: [
-                // ViewMessage
                 Gap(20.h),
                 ViewMessage(
                   title: AppString.signUpTitle,
                   subtitle: AppString.signUpSubtitle,
                 ),
                 Gap(50.h),
-                // Social Buttons
-                SocialButtons(),
+                const SocialButtons(),
                 Gap(30.h),
-
-                // Signup Form
-                SignupForm(),
+                const SignupForm(),
                 Gap(20.h),
-
-                // Fotter Buttons
                 FooterButtons(
-                  onTap: () {
-                    context.pushNamed(AppRoutes.loginView);
-                  },
+                  onTap: () => context.pushNamed(AppRoutes.loginView),
                   title: AppString.haveAnAccount,
                 ),
               ],

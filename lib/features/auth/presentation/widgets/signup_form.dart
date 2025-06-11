@@ -1,7 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/utils/validators.dart';
-import 'package:doctor_hunt/features/auth/presentation/controllers/form_controller.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/agree_terms.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/email_field.dart';
@@ -17,51 +16,73 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
+  late final TextEditingController _nameController;
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+  late final GlobalKey<FormState> _formKey;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _formKey = GlobalKey<FormState>();
+  }
+
   @override
   void dispose() {
-    FormController.disposeSignupForm();
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: FormController.signUpformKey,
+      key: _formKey,
       child: Column(
         spacing: 10.h,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // name
+          // Name field
           AuthTextFormFieldWidget(
             hintText: AppString.name,
-            controller: FormController.nameController,
+            controller: _nameController,
             textCapitalization: TextCapitalization.words,
             validator: Validators.validateName,
           ),
 
-          // email
-          EmailField(emailController: FormController.signUpEmailController),
+          // Email field
+          EmailField(emailController: _emailController),
 
-          // password
-          PasswordField(controller: FormController.signUpPasswordController),
+          // Password field
+          PasswordField(controller: _passwordController),
 
-          // Agree Terms
-          AgreeTerms(),
+          // Agree terms
+          const AgreeTerms(),
 
-          // Signup Button
+          // Sign up button
           CustomButtom(
             height: 60.h,
             title: AppString.signUp,
-            onTap: () {
-              if (FormController.signUpformKey.currentState!.validate()) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(const SnackBar(content: Text('Form is valid!')));
-              }
-            },
+            onTap: () => _handleSignup(context),
           ),
         ],
       ),
     );
+  }
+
+  void _handleSignup(BuildContext context) {
+    if (_formKey.currentState?.validate() == true) {
+      _showSuccessMessage(context, 'Sign up form is valid!');
+    }
+  }
+
+  void _showSuccessMessage(BuildContext context, String message) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }
