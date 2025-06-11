@@ -8,6 +8,8 @@ import 'package:doctor_hunt/features/auth/presentation/widgets/signup_form.dart'
 import 'package:doctor_hunt/features/auth/presentation/widgets/social_buttons.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/view_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({super.key});
@@ -26,18 +28,13 @@ class SignupView extends StatelessWidget {
                   title: AppString.signUpTitle,
                   subtitle: AppString.signUpSubtitle,
                 ),
-
+                Gap(50.h),
                 // Social Buttons
-                // SocialButtons(),
+                SocialButtons(),
+                Gap(30.h),
 
                 // Signup Form
-                // SignupForm(),
-
-                // Agree Terms
-                // AgreeTerms(),
-
-                // Signup Button
-                // CustomButtom(title: AppString.signUp),
+                SignupForm(),
 
                 // Fotter Buttons
                 //FooterButtons(),

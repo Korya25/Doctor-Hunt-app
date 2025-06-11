@@ -56,8 +56,8 @@ class AppString {
   static const String forgotPassword = "Forgot Password";
   static const String dontHaveAccount = "Don’t have an account? Join us";
   static const String haveAnAccount = "Have an account? Log in";
-  static const String google = "google";
-  static const String facebook = "facebook";
+  static const String google = "Google";
+  static const String facebook = "Facebook";
   static const String signUpTerms =
       "I agree with the Terms of Service & Privacy Policy";
 

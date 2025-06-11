@@ -4,10 +4,13 @@ import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/agree_terms.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/fotter_buttom.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/login_form.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/signup_form.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/social_buttons.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/view_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -26,15 +29,13 @@ class LoginView extends StatelessWidget {
                   title: AppString.loginTitle,
                   subtitle: AppString.loginSubtitle,
                 ),
-
+                Gap(50.h),
                 // Social Buttons
-                // SocialButtons(),
+                SocialButtons(),
+                Gap(30.h),
 
                 // Signup Form
-                // SignupForm(),
-
-                // Signup Button
-                // CustomButtom(title: AppString.signUp),
+                //LoginForm(),
 
                 // Forgot Password
                 // FotterButtons

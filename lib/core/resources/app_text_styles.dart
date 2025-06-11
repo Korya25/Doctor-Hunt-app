@@ -183,4 +183,11 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.primaryTextColor,
   );
+
+  static TextStyle get rubik16Lighttertiary => _rubik(
+    fontSize: 16.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
 }
