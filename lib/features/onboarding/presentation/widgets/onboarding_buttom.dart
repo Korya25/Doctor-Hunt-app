@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
-import 'package:doctor_hunt/core/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

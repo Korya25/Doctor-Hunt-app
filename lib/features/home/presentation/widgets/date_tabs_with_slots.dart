@@ -1,5 +1,5 @@
+import 'package:doctor_hunt/core/presentation/widgets/custom_horizontal_list_view.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
-import 'package:doctor_hunt/core/widgets/custom_horizontal_list_view.dart';
 import 'package:doctor_hunt/features/home/data/test_data/doctor_data.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/date_tab.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/time_slots_sections.dart';
@@ -25,7 +25,7 @@ class _DateTabsWithSlotsState extends State<DateTabsWithSlots> {
       children: [
         // Date Tabs horizontal list
         CustomHorizontalListView(
-          height: 60.h,
+          height: 80.h,
           itemCount: DoctorData.dateTabs.length,
           itemBuilder: (context, index) {
             return DateTab(

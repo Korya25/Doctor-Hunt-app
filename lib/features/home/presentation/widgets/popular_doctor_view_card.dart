@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
-import 'package:doctor_hunt/core/widgets/cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/core/widgets/Cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/custom_rating_bar.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/favorite_button.dart';
