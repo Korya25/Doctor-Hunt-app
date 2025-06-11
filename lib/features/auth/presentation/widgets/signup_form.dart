@@ -1,7 +1,11 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/utils/validators.dart';
 import 'package:doctor_hunt/features/auth/presentation/controllers/form_controller.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/agree_terms.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/auth_text_field.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/email_field.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,11 +18,17 @@ class SignupForm extends StatefulWidget {
 
 class _SignupFormState extends State<SignupForm> {
   @override
+  void dispose() {
+    FormController.disposeSignupForm();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: FormController.signUpformKey,
       child: Column(
-        spacing: 20.h,
+        spacing: 10.h,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // name
@@ -30,46 +40,26 @@ class _SignupFormState extends State<SignupForm> {
           ),
 
           // email
-          AuthTextFormFieldWidget(
-            hintText: AppString.email,
-            controller: FormController.signUpEmailController,
-            keyboardType: TextInputType.emailAddress,
-            validator: Validators.validateEmail,
-          ),
+          EmailField(emailController: FormController.signUpEmailController),
 
           // password
-          AuthTextFormFieldWidget(
-            hintText: AppString.password,
-            controller: FormController.signUpPasswordController,
-            obscureText: true,
-            validator: Validators.validatePassword,
-          ),
+          PasswordField(controller: FormController.signUpPasswordController),
 
           // Agree Terms
-          // AgreeTerms(),
+          AgreeTerms(),
 
           // Signup Button
-          /*   ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
+          CustomButtom(
+            height: 60.h,
+            title: AppString.signUp,
+            onTap: () {
+              if (FormController.signUpformKey.currentState!.validate()) {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(const SnackBar(content: Text('Form is valid!')));
               }
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            child: const Text(
-              'Submit',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-          ),*/
+          ),
         ],
       ),
     );

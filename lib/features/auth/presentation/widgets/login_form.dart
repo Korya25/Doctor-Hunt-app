@@ -1,7 +1,8 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
-import 'package:doctor_hunt/core/utils/validators.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/features/auth/presentation/controllers/form_controller.dart';
-import 'package:doctor_hunt/features/auth/presentation/widgets/auth_text_field.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/email_field.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,6 +15,12 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   @override
+  void dispose() {
+    FormController.disposeLoginForm();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: FormController.loginFormKey,
@@ -22,46 +29,23 @@ class _LoginFormState extends State<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // email
-          AuthTextFormFieldWidget(
-            hintText: AppString.email,
-            controller: FormController.signUpEmailController,
-            keyboardType: TextInputType.emailAddress,
-            validator: Validators.validateEmail,
-          ),
+          EmailField(emailController: FormController.loginEmailController),
 
           // password
-          AuthTextFormFieldWidget(
-            hintText: AppString.password,
-            controller: FormController.signUpPasswordController,
-            obscureText: true,
-            validator: Validators.validatePassword,
-          ),
+          PasswordField(controller: FormController.loginPasswordController),
 
-          // Agree Terms
-          // AgreeTerms(),
-
-          // Signup Button
-          /*   ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
+          // Login
+          CustomButtom(
+            height: 60.h,
+            title: AppString.login,
+            onTap: () {
+              if (FormController.loginFormKey.currentState!.validate()) {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(const SnackBar(content: Text('Form is valid!')));
               }
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            child: const Text(
-              'Submit',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-          ),*/
+          ),
         ],
       ),
     );

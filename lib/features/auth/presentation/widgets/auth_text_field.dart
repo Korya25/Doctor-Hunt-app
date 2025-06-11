@@ -37,42 +37,47 @@ class AuthTextFormFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.secondaryColor,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: Colors.grey[300]!, width: 1),
-      ),
-      child: TextFormField(
-        controller: controller,
-        validator: validator,
-        keyboardType: keyboardType,
-        obscureText: obscureText,
-        onTap: onTap,
-        onChanged: onChanged,
-        readOnly: readOnly,
-        maxLines: maxLines,
-        textCapitalization: textCapitalization,
-        enabled: enabled,
-        style: AppTextStyles.rubik16Lighttertiary,
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: AppTextStyles.rubik16Lighttertiary,
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 16,
-          ),
-          border: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
-          errorBorder: InputBorder.none,
-          focusedErrorBorder: InputBorder.none,
-          fillColor: Colors.transparent,
-          filled: true,
+    return TextFormField(
+      controller: controller,
+      validator: validator,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      onTap: onTap,
+      onChanged: onChanged,
+      readOnly: readOnly,
+      maxLines: maxLines,
+      cursorColor: AppColors.tertiaryTextColor,
+      cursorErrorColor: AppColors.tertiaryTextColor,
+      textCapitalization: textCapitalization,
+      enabled: enabled,
+      style: AppTextStyles.rubik16Lighttertiary,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: AppTextStyles.rubik16Lighttertiary,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 16,
         ),
+
+        border: buildBorder(),
+        enabledBorder: buildBorder(),
+        focusedBorder: buildBorder(),
+        errorBorder: buildBorder(),
+        focusedErrorBorder: buildBorder(),
+        fillColor: Colors.transparent,
+        filled: true,
       ),
+    );
+  }
+
+  // build boreder
+  InputBorder buildBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12.r),
+      borderSide: BorderSide(color: Colors.grey[300]!, width: 1),
     );
   }
 }

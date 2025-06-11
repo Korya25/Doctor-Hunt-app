@@ -1,16 +1,15 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
-import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
-import 'package:doctor_hunt/features/auth/presentation/widgets/agree_terms.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/forgot_password_dialog.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/fotter_buttom.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/login_form.dart';
-import 'package:doctor_hunt/features/auth/presentation/widgets/signup_form.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/social_buttons.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/view_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -25,6 +24,8 @@ class LoginView extends StatelessWidget {
             child: Column(
               children: [
                 // ViewMessage
+                Gap(20.h),
+
                 ViewMessage(
                   title: AppString.loginTitle,
                   subtitle: AppString.loginSubtitle,
@@ -35,13 +36,24 @@ class LoginView extends StatelessWidget {
                 Gap(30.h),
 
                 // Signup Form
-                //LoginForm(),
-
+                LoginForm(),
+                Gap(20.h),
                 // Forgot Password
-                // FotterButtons
+                FooterButtons(
+                  onTap: () {
+                    showForgotPasswordBottomSheet(context);
+                  },
+                  title: AppString.forgotPassword,
+                ),
 
                 // Fotter Buttons
-                //FooterButtons(),
+                Gap(100.h),
+                FooterButtons(
+                  onTap: () {
+                    context.pop();
+                  },
+                  title: AppString.dontHaveAccount,
+                ),
               ],
             ),
           ),
@@ -49,4 +61,17 @@ class LoginView extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<String?> showForgotPasswordBottomSheet(BuildContext context) {
+  return showModalBottomSheet<String>(
+    context: context,
+    backgroundColor: Colors.transparent,
+    isScrollControlled: true,
+    isDismissible: true,
+    enableDrag: true,
+    builder: (BuildContext context) {
+      return const ForgotPasswordBottomSheet();
+    },
+  );
 }

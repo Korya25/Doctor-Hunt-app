@@ -80,7 +80,12 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
-
+  static TextStyle get rubik12RegularTertiary => _rubik(
+    fontSize: 12.sp,
+    weight: FontWeightType.regular,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
   static TextStyle get rubik10MediumSecondry => _rubik(
     fontSize: 10.sp,
     weight: FontWeightType.bold,
