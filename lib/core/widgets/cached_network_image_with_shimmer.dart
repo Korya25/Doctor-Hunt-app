@@ -13,6 +13,8 @@ class CachedNetworkImageWithShimmer extends StatelessWidget {
     this.borderWidth = 2.0,
     this.borderColor = AppColors.secondaryColor,
     this.defaultIcon = Icons.person,
+    this.height,
+    this.width,
   });
 
   final String imageUrl;
@@ -20,13 +22,15 @@ class CachedNetworkImageWithShimmer extends StatelessWidget {
   final double borderWidth;
   final Color borderColor;
   final IconData defaultIcon;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: imageUrl,
-      width: radius * 2,
-      height: radius * 2,
+      width: height ?? radius * 2,
+      height: width ?? radius * 2,
       fit: BoxFit.cover,
       placeholder: (context, url) => Shimmer.fromColors(
         baseColor: AppColors.shimmerBase,

@@ -34,6 +34,12 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
+  static TextStyle get rubik14LightTiary => _rubik(
+    fontSize: 14.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
 
   // Buttons
   static TextStyle get rubik18MediumSecondary => _rubik(
@@ -62,8 +68,8 @@ class AppTextStyles {
     color: AppColors.secondaryTextColor,
   );
 
-  static TextStyle get rubik18MediumPrimary => _rubik(
-    fontSize: 18.sp,
+  static TextStyle get rubik15MediumPrimary => _rubik(
+    fontSize: 15.sp,
     weight: FontWeightType.medium,
     letterSpacing: -0.3,
     color: AppColors.primaryTextColor,
@@ -71,6 +77,94 @@ class AppTextStyles {
   static TextStyle get rubik12LightTertiary => _rubik(
     fontSize: 12.sp,
     weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
+
+  static TextStyle get rubik10MediumSecondry => _rubik(
+    fontSize: 10.sp,
+    weight: FontWeightType.bold,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik12MediumPrimary => _rubik(
+    fontSize: 12.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+  static TextStyle get rubik12MediumSecondry => _rubik(
+    fontSize: 12.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.secondaryTextColor,
+  );
+
+  static TextStyle get rubik9Lighttertiary => _rubik(
+    fontSize: 9.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
+
+  static TextStyle get rubik14LightSecondary => _rubik(
+    fontSize: 14.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.secondaryTextColor,
+  );
+
+  static TextStyle get rubik18RugularPrimariy => _rubik(
+    fontSize: 18.sp,
+    weight: FontWeightType.regular,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik18MediumPrimariy => _rubik(
+    fontSize: 18.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+  static TextStyle get rubik13RegularMainPrimairy => _rubik(
+    fontSize: 13.sp,
+    weight: FontWeightType.regular,
+    letterSpacing: -0.3,
+    color: AppColors.primaryColor,
+  );
+
+  static TextStyle get rubik13MediumMainprimary => _rubik(
+    fontSize: 13.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryColor,
+  );
+  static TextStyle get rubik13MediumMainPrimairy => _rubik(
+    fontSize: 13.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryColor,
+  );
+
+  static TextStyle get rubik12MediumTertiary => _rubik(
+    fontSize: 12.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
+
+  static TextStyle get rubik16MediumPrimary => _rubik(
+    fontSize: 16.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik16Regulartertiary => _rubik(
+    fontSize: 16.sp,
+    weight: FontWeightType.regular,
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );

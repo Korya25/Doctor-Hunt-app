@@ -12,6 +12,7 @@ class CustomButtom extends StatelessWidget {
     this.color,
     this.borderRadius,
     this.onTap,
+    this.textStyle,
   });
   final String title;
   final double? height;
@@ -19,6 +20,7 @@ class CustomButtom extends StatelessWidget {
   final Color? color;
   final double? borderRadius;
   final VoidCallback? onTap;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,10 @@ class CustomButtom extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
         ),
         child: Center(
-          child: Text(title, style: AppTextStyles.rubik18MediumSecondary),
+          child: Text(
+            title,
+            style: textStyle ?? AppTextStyles.rubik18MediumSecondary,
+          ),
         ),
       ),
     );

@@ -25,4 +25,17 @@ class AppString {
   static const String popularDoctors = 'Popular Doctors';
   static const String featureDoctor = 'Feature Doctor';
   static const String seeAll = 'See All';
+
+  // Live Chat
+  static const String sendCommentHint = "Add a Comment.....";
+
+  // Find Doctor
+  static const String findDoctor = "Find Doctors";
+  static const String yearsExperience = "Years experience ";
+  static const String patientStories = "Patient Stories";
+  static const String bookNow = 'Book Now';
+  static const String nextAvailable = 'Next Available';
+
+  // Select Me
+  static const String selectMe = "Select Me";
 }

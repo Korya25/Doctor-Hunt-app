@@ -7,14 +7,19 @@ class BackgroundScaffold extends StatelessWidget {
     required this.body,
     this.appBar,
     this.backgroundImage = AppImages.backgroundScaffold,
+    this.bottomNavigationBar,
   });
+
   final Widget body;
   final AppBar? appBar;
   final String? backgroundImage;
+  final Widget? bottomNavigationBar;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
+      bottomNavigationBar: bottomNavigationBar ?? const SizedBox(),
       body: Stack(
         children: [
           Container(
