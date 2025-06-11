@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FotterButtom extends StatelessWidget {
-  const FotterButtom({super.key});
+class FooterButtons extends StatelessWidget {
+  const FooterButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
