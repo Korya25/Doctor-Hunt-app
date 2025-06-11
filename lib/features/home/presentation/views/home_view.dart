@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
-            // Header
+            // Header Pin When Scroll
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 190.h,
