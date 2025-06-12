@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/constant/app_assets.dart';
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -16,16 +17,23 @@ class SocialButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         // google
-        buildSocialButtonsItem(
-          title: AppString.google,
-          svgIcon: AppIconsSvgs.google,
-          onTap: () {},
+        CustomFadeIn(
+          direction: FadeDirection.left,
+          child: buildSocialButtonsItem(
+            title: AppString.google,
+            svgIcon: AppIconsSvgs.google,
+            onTap: () {},
+          ),
         ),
         // facebook
-        buildSocialButtonsItem(
-          title: AppString.facebook,
-          svgIcon: AppIconsSvgs.facebook,
-          onTap: () {},
+        CustomFadeIn(
+          direction: FadeDirection.right,
+
+          child: buildSocialButtonsItem(
+            title: AppString.facebook,
+            svgIcon: AppIconsSvgs.facebook,
+            onTap: () {},
+          ),
         ),
       ],
     );

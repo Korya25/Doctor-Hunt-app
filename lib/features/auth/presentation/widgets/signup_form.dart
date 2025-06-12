@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/utils/function.dart';
 import 'package:doctor_hunt/core/utils/validators.dart';
@@ -49,37 +50,52 @@ class _SignupFormState extends State<SignupForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Name field
-          AuthTextFormFieldWidget(
-            hintText: AppString.name,
-            controller: _nameController,
-            textCapitalization: TextCapitalization.words,
-            validator: Validators.validateName,
+          CustomFadeIn(
+            direction: FadeDirection.right,
+            child: AuthTextFormFieldWidget(
+              hintText: AppString.name,
+              controller: _nameController,
+              textCapitalization: TextCapitalization.words,
+              validator: Validators.validateName,
+            ),
           ),
 
           // Email field
-          EmailField(emailController: _emailController),
+          CustomFadeIn(
+            direction: FadeDirection.left,
+            child: EmailField(emailController: _emailController),
+          ),
 
           // Password field
-          PasswordField(controller: _passwordController),
+          CustomFadeIn(
+            direction: FadeDirection.right,
+            child: PasswordField(controller: _passwordController),
+          ),
 
           // Agree terms
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isChecked = !isChecked;
-              });
-            },
-            child: AgreeTerms(isChecked: isChecked),
+          CustomFadeIn(
+            direction: FadeDirection.left,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isChecked = !isChecked;
+                });
+              },
+              child: AgreeTerms(isChecked: isChecked),
+            ),
           ),
 
           // Sign up button
-          CustomButtom(
-            height: 60.h,
-            title: AppString.signUp,
-            onTap: () => handleSignup(
-              context: context,
-              formKey: _formKey,
-              isChecked: isChecked,
+          CustomFadeIn(
+            direction: FadeDirection.right,
+            child: CustomButtom(
+              height: 60.h,
+              title: AppString.signUp,
+              onTap: () => handleSignup(
+                context: context,
+                formKey: _formKey,
+                isChecked: isChecked,
+              ),
             ),
           ),
         ],

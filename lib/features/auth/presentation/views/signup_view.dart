@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/fotter_buttom.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/signup_form.dart';
@@ -33,9 +34,12 @@ class SignupView extends StatelessWidget {
                 Gap(30.h),
                 const SignupForm(),
                 Gap(20.h),
-                FooterButtons(
-                  onTap: () => context.pushNamed(AppRoutes.loginView),
-                  title: AppString.haveAnAccount,
+                CustomFadeIn(
+                  direction: FadeDirection.up,
+                  child: FooterButtons(
+                    onTap: () => context.goNamed(AppRoutes.loginView),
+                    title: AppString.haveAnAccount,
+                  ),
                 ),
               ],
             ),

@@ -75,7 +75,10 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             Padding(
               padding: AppPadding.paddingH25,
               child: OnboardingButtom(
-                getStartedOnTap: () => context.goNamed(AppRoutes.signupView),
+                // add dut=ratiom
+                getStartedOnTap: () {
+                  context.goNamed(AppRoutes.signupView);
+                },
                 nextOnTap: () {
                   if (currentIndex < onboardingList.length - 1) {
                     pageController.nextPage(

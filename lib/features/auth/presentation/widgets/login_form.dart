@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/utils/function.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/email_field.dart';
@@ -41,12 +42,21 @@ class _LoginFormState extends State<LoginForm> {
         spacing: 20.h,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          EmailField(emailController: _emailController),
-          PasswordField(controller: _passwordController),
-          CustomButtom(
-            height: 60.h,
-            title: AppString.login,
-            onTap: () => handleLogin(context: context, formKey: _formKey),
+          CustomFadeIn(
+            direction: FadeDirection.right,
+            child: EmailField(emailController: _emailController),
+          ),
+          CustomFadeIn(
+            direction: FadeDirection.left,
+            child: PasswordField(controller: _passwordController),
+          ),
+          CustomFadeIn(
+            direction: FadeDirection.right,
+            child: CustomButtom(
+              height: 60.h,
+              title: AppString.login,
+              onTap: () => handleLogin(context: context, formKey: _formKey),
+            ),
           ),
         ],
       ),

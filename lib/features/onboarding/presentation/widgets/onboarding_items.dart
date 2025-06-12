@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/presentation/widgets/fade_slide_in.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/onboarding_animated_image.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/title_sub.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class OnboardingItems extends StatelessWidget {
         // Title and Subtitle
         Padding(
           padding: AppPadding.paddingH25,
-          child: AnimatedTitleSub(
+          child: FadeSlideIn(
             child: TitleSub(title: title, subtitle: subtitle),
           ),
         ),
