@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/features/onboarding/presentation/widgets/onboarding_animated_image.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/title_sub.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +14,6 @@ class OnboardingItems extends StatelessWidget {
   final String image;
   final String title;
   final String subtitle;
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,8 +21,7 @@ class OnboardingItems extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         // Image
-        CircleAvatar(radius: 180.r, backgroundImage: AssetImage(image)),
-
+        OnboardingAnimatedImage(image: image),
         // Title and Subtitle
         Padding(
           padding: AppPadding.paddingH25,
