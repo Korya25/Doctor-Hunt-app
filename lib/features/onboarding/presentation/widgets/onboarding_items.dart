@@ -25,7 +25,9 @@ class OnboardingItems extends StatelessWidget {
         // Title and Subtitle
         Padding(
           padding: AppPadding.paddingH25,
-          child: TitleSub(title: title, subtitle: subtitle),
+          child: AnimatedTitleSub(
+            child: TitleSub(title: title, subtitle: subtitle),
+          ),
         ),
       ],
     );

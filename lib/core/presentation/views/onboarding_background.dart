@@ -27,7 +27,7 @@ class OnboardingBackground extends StatelessWidget {
         /// Top
         AnimatedAlign(
           alignment: Alignment(isTopContainerLeft ? -17.0 : 17.0, -1.5),
-          duration: const Duration(milliseconds: 400),
+          duration: Duration(milliseconds: 600),
           curve: Curves.easeInOut,
           child: Container(
             height: 362.h,
@@ -38,7 +38,6 @@ class OnboardingBackground extends StatelessWidget {
             ),
           ),
         ),
-
         child,
       ],
     );
