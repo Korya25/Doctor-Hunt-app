@@ -6,6 +6,8 @@ class AppColors {
 
   // Background Colors
   static const Color primaryBackgroundColor = Colors.white;
+  static const Color topBackgroundContainer = Color(0xff61CEFF);
+  static const Color bottomBackgroundContainer = primaryColor;
 
   // Text Colors
   static const Color primaryTextColor = Color(0xff333333);
