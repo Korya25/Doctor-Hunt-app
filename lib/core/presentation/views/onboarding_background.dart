@@ -1,10 +1,10 @@
-import 'dart:ui';
 import 'package:doctor_hunt/core/constant/app_colors.dart';
+import 'package:doctor_hunt/core/presentation/widgets/blurred_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OnboardingBackgroundScaffold extends StatelessWidget {
-  const OnboardingBackgroundScaffold({
+class OnboardingBackground extends StatelessWidget {
+  const OnboardingBackground({
     super.key,
     required this.child,
     required this.isTopContainerLeft,
@@ -19,11 +19,8 @@ class OnboardingBackgroundScaffold extends StatelessWidget {
         /// Bottom
         Align(
           alignment: const Alignment(1.2, 1.2),
-          child: _buildBlurredCircle(
+          child: CustomBlurredCircle(
             color: AppColors.bottomBackgroundContainer,
-            size: 216.w,
-            blurSigma: 269,
-            opacity: 0.3,
           ),
         ),
 
@@ -44,26 +41,6 @@ class OnboardingBackgroundScaffold extends StatelessWidget {
 
         child,
       ],
-    );
-  }
-
-  Widget _buildBlurredCircle({
-    required Color color,
-    required double size,
-    double blurSigma = 50,
-    double opacity = 0.2,
-  }) {
-    return Container(
-      height: size,
-      width: size,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color.withOpacity(opacity),
-      ),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
-        child: Container(color: Colors.transparent),
-      ),
     );
   }
 }
