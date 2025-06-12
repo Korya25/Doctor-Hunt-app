@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
+import 'package:doctor_hunt/core/utils/function.dart';
 import 'package:doctor_hunt/core/utils/validators.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/agree_terms.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/auth_text_field.dart';
@@ -20,6 +21,7 @@ class _SignupFormState extends State<SignupForm> {
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
   late final GlobalKey<FormState> _formKey;
+  bool isChecked = false;
 
   @override
   void initState() {
@@ -61,28 +63,27 @@ class _SignupFormState extends State<SignupForm> {
           PasswordField(controller: _passwordController),
 
           // Agree terms
-          const AgreeTerms(),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isChecked = !isChecked;
+              });
+            },
+            child: AgreeTerms(isChecked: isChecked),
+          ),
 
           // Sign up button
           CustomButtom(
             height: 60.h,
             title: AppString.signUp,
-            onTap: () => _handleSignup(context),
+            onTap: () => handleSignup(
+              context: context,
+              formKey: _formKey,
+              isChecked: isChecked,
+            ),
           ),
         ],
       ),
     );
-  }
-
-  void _handleSignup(BuildContext context) {
-    if (_formKey.currentState?.validate() == true) {
-      _showSuccessMessage(context, 'Sign up form is valid!');
-    }
-  }
-
-  void _showSuccessMessage(BuildContext context, String message) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }

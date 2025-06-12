@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
+import 'package:doctor_hunt/core/utils/function.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/email_field.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/password_field.dart';
 import 'package:flutter/material.dart';
@@ -45,22 +46,10 @@ class _LoginFormState extends State<LoginForm> {
           CustomButtom(
             height: 60.h,
             title: AppString.login,
-            onTap: () => _handleLogin(context),
+            onTap: () => handleLogin(context: context, formKey: _formKey),
           ),
         ],
       ),
     );
-  }
-
-  void _handleLogin(BuildContext context) {
-    if (_formKey.currentState?.validate() == true) {
-      _showSuccessMessage(context, 'Login form is valid!');
-    }
-  }
-
-  void _showSuccessMessage(BuildContext context, String message) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }

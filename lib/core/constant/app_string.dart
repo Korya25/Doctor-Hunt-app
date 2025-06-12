@@ -76,4 +76,18 @@ class AppString {
   static const String newPassword = "New Password";
   static const String reenterPassword = "Re-enter Password";
   static const String updatePassword = "Update Password";
+
+  static const String enter4DigitsCode = "Enter 4 Digits Code";
+  static const String enter4DigitsCodeSubtitle =
+      'Enter the 4 digits code that you received on your email.';
+
+  static const String enterValidOtp = 'Please enter a valid 4-digit code';
+  static const String passwordUpdatedSuccessfully =
+      'Password updated successfully!';
+
+  static const String signUpSuccessfully = 'Sign up successfully!';
+  static const String pleaseAgreesignUpTerms =
+      'Please agree to the terms and conditions.';
+
+  static const String loginSuccessfully = 'Login successfully!';
 }

@@ -195,4 +195,11 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
+
+  static TextStyle get rubik26BoldMainPrimary => _rubik(
+    fontSize: 26.sp,
+    weight: FontWeightType.bold,
+    letterSpacing: -0.3,
+    color: AppColors.primaryColor,
+  );
 }

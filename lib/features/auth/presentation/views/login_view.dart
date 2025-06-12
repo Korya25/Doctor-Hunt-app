@@ -1,9 +1,9 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
-import 'package:doctor_hunt/features/auth/presentation/widgets/auth_bottom_sheet.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/fotter_buttom.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/login_form.dart';
+import 'package:doctor_hunt/features/auth/presentation/widgets/reset_pass_bottom_sheet_manger.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/social_buttons.dart';
 import 'package:doctor_hunt/features/auth/presentation/widgets/view_message.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class LoginView extends StatelessWidget {
                   onTap: () => AuthBottomSheet.showForgotPassword(context),
                   title: AppString.forgotPassword,
                 ),
-                Gap(100.h),
+                Gap(130.h),
                 FooterButtons(
                   onTap: () => context.pop(),
                   title: AppString.dontHaveAccount,
