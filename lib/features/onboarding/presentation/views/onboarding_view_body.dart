@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/presentation/widgets/onboarding_background_scaffold.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/features/onboarding/data/models/onboarding_model.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/onboarding_buttom.dart';
@@ -52,10 +53,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(image: backgroundImage),
-      child: SafeArea(
+    return SafeArea(
+      child: OnboardingBackgroundScaffold(
+        isTopContainerLeft: currentIndex % 2 == 0,
         child: Column(
           children: [
             Expanded(
