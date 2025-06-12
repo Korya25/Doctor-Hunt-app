@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
-import 'package:doctor_hunt/core/presentation/widgets/onboarding_background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/views/onboarding_background_scaffold.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/features/onboarding/data/models/onboarding_model.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/onboarding_buttom.dart';

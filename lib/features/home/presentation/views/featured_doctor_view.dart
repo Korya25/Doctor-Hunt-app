@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
-import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/data/test_data/doctor_data.dart';
