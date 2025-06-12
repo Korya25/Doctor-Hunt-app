@@ -1,9 +1,9 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
-import 'package:doctor_hunt/core/widgets/background_scaffold.dart';
-import 'package:doctor_hunt/core/widgets/custom_header_section.dart';
-import 'package:doctor_hunt/core/widgets/custom_horizontal_list_view.dart';
+import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_header_section.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_horizontal_list_view.dart';
 import 'package:doctor_hunt/features/home/data/test_data/doctor_data.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
 import 'package:doctor_hunt/features/home/data/test_data/fake_users.dart';

@@ -1,8 +1,8 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
-import 'package:doctor_hunt/core/widgets/background_scaffold.dart';
-import 'package:doctor_hunt/core/widgets/custom_vertical_list_view.dart';
-import 'package:doctor_hunt/core/widgets/search_input_field.dart';
+import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_vertical_list_view.dart';
+import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/find_doctor_card.dart';

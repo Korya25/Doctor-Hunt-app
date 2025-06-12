@@ -6,4 +6,6 @@ class AppRoutes {
   static const String selectMe = '/selectMe';
   static const String popularDoctors = '/popularDoctors';
   static const String featuredDoctors = '/featuredDoctors';
+  static const String loginView = '/loginView';
+  static const String signupView = '/signupView';
 }

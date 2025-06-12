@@ -80,7 +80,12 @@ class AppTextStyles {
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
   );
-
+  static TextStyle get rubik12RegularTertiary => _rubik(
+    fontSize: 12.sp,
+    weight: FontWeightType.regular,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
   static TextStyle get rubik10MediumSecondry => _rubik(
     fontSize: 10.sp,
     weight: FontWeightType.bold,
@@ -167,5 +172,34 @@ class AppTextStyles {
     weight: FontWeightType.regular,
     letterSpacing: -0.3,
     color: AppColors.tertiaryTextColor,
+  );
+
+  // Auth
+  static TextStyle get rubik24MediumPrimary => _rubik(
+    fontSize: 24.sp,
+    weight: FontWeightType.medium,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik14RegularPrimary => _rubik(
+    fontSize: 14.sp,
+    weight: FontWeightType.regular,
+    letterSpacing: -0.3,
+    color: AppColors.primaryTextColor,
+  );
+
+  static TextStyle get rubik16Lighttertiary => _rubik(
+    fontSize: 16.sp,
+    weight: FontWeightType.light,
+    letterSpacing: -0.3,
+    color: AppColors.tertiaryTextColor,
+  );
+
+  static TextStyle get rubik26BoldMainPrimary => _rubik(
+    fontSize: 26.sp,
+    weight: FontWeightType.bold,
+    letterSpacing: -0.3,
+    color: AppColors.primaryColor,
   );
 }

@@ -38,4 +38,56 @@ class AppString {
 
   // Select Me
   static const String selectMe = "Select Me";
+
+  // auth
+
+  static const String signUp = "Sign Up";
+  static const String login = "Login";
+  static const String signUpTitle = "Join us to start searching";
+  static const String signUpSubtitle =
+      "You can search c ourse, apply course and find scholarship for abroad studies";
+  static const String loginTitle = "Welcome back";
+  static const String loginSubtitle =
+      "You can search c ourse, apply course and find scholarship for abroad studies";
+
+  static const String name = "Name";
+  static const String email = "Email";
+  static const String password = "Password";
+  static const String forgotPassword = "Forgot Password";
+  static const String dontHaveAccount = "Don’t have an account? Join us";
+  static const String haveAnAccount = "Have an account? Log in";
+  static const String google = "Google";
+  static const String facebook = "Facebook";
+  static const String signUpTerms =
+      "I agree with the Terms of Service & Privacy Policy";
+
+  static const String forgotPasswordTitle =
+      'Enter your email for the verification proccesss, we will send 4 digits code to your email.';
+  static const String continueText = "Continue";
+  // enter 4 digit code
+  static const String enter4DigitCode = "Enter 4 Digit Code";
+  static const String enter4DigitCodeSubtitle =
+      'Enter the 4 digits code that you received on your email.';
+  // Reset Password
+  static const String resetPassword = "Reset Password";
+  static const String resetPasswordSubtitle =
+      'Set the new password for your account so you can login and access all the features.';
+
+  static const String newPassword = "New Password";
+  static const String reenterPassword = "Re-enter Password";
+  static const String updatePassword = "Update Password";
+
+  static const String enter4DigitsCode = "Enter 4 Digits Code";
+  static const String enter4DigitsCodeSubtitle =
+      'Enter the 4 digits code that you received on your email.';
+
+  static const String enterValidOtp = 'Please enter a valid 4-digit code';
+  static const String passwordUpdatedSuccessfully =
+      'Password updated successfully!';
+
+  static const String signUpSuccessfully = 'Sign up successfully!';
+  static const String pleaseAgreesignUpTerms =
+      'Please agree to the terms and conditions.';
+
+  static const String loginSuccessfully = 'Login successfully!';
 }

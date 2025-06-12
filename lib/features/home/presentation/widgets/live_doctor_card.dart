@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_assets.dart';
-import 'package:doctor_hunt/core/widgets/Cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

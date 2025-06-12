@@ -1,4 +1,6 @@
-import 'package:doctor_hunt/core/widgets/cached_network_image_with_shimmer.dart';
+// ignore_for_file: file_names
+
+import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/features/home/data/models/chat_message_model.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';

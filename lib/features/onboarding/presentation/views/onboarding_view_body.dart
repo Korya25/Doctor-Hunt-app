@@ -75,7 +75,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             Padding(
               padding: AppPadding.paddingH25,
               child: OnboardingButtom(
-                getStartedOnTap: () => context.goNamed(AppRoutes.home),
+                getStartedOnTap: () => context.goNamed(AppRoutes.signupView),
                 nextOnTap: () {
                   if (currentIndex < onboardingList.length - 1) {
                     pageController.nextPage(
@@ -83,7 +83,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                       curve: Curves.easeInOut,
                     );
                   } else {
-                    context.goNamed(AppRoutes.home);
+                    context.goNamed(AppRoutes.signupView);
                   }
                 },
                 disableNextOnTap: currentIndex >= onboardingList.length - 1,

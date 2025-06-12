@@ -1,9 +1,9 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
-import 'package:doctor_hunt/core/widgets/search_input_field.dart';
-import 'package:doctor_hunt/core/widgets/Cached_network_image_with_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

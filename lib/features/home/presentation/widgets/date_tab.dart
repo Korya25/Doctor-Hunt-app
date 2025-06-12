@@ -33,6 +33,7 @@ class DateTab extends StatelessWidget {
           ),
         ),
         child: Column(
+          spacing: 2.h,
           children: [
             Text(
               date,

@@ -34,4 +34,7 @@ class AppIconsSvgs {
   static const String meesageBottomNabBar =
       'assets/icons/meesage_bottom_nav_bar.svg';
   static const String bookBottomNavBar = 'assets/icons/book_bottom_nav_bar.svg';
+
+  static const String google = 'assets/icons/google.svg';
+  static const String facebook = 'assets/icons/facebook.svg';
 }
