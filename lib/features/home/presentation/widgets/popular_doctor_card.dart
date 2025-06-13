@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/custom_rating_bar.dart';
@@ -23,7 +24,7 @@ class PopularDoctorCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
           color: const Color.fromARGB(240, 255, 255, 255),
           child: SizedBox(
-            width: 190.w,
+            width: 150.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -32,10 +33,13 @@ class PopularDoctorCard extends StatelessWidget {
                     imageUrl: doctorModel.image,
                   ),
                 ),
-                PopularDoctorDetailCard(
-                  docName: doctorModel.name,
-                  docCategory: doctorModel.category,
-                  docRating: doctorModel.rating,
+                CustomFadeIn(
+                  direction: FadeDirection.up,
+                  child: PopularDoctorDetailCard(
+                    docName: doctorModel.name,
+                    docCategory: doctorModel.category,
+                    docRating: doctorModel.rating,
+                  ),
                 ),
               ],
             ),

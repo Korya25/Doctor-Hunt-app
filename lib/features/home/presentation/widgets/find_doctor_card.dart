@@ -1,10 +1,10 @@
+// find_doctor_card.dart
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
-
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/favorite_button.dart';
 import 'package:flutter/material.dart';
@@ -22,28 +22,30 @@ class FindDoctorCard extends StatelessWidget {
       elevation: 1.h,
       borderRadius: BorderRadius.circular(8.r),
       child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.secondaryColor,
-          borderRadius: BorderRadius.circular(8.r),
-        ),
+        decoration: _buildCardDecoration(),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
-
-        // Card content
         child: FindDoctorCardContent(doctorModel: doctorModel),
       ),
+    );
+  }
+
+  BoxDecoration _buildCardDecoration() {
+    return BoxDecoration(
+      color: AppColors.secondaryColor,
+      borderRadius: BorderRadius.circular(8.r),
     );
   }
 }
 
 class FindDoctorCardContent extends StatelessWidget {
   const FindDoctorCardContent({super.key, required this.doctorModel});
+
   final DoctorModel doctorModel;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        //  doctor image & details
         Column(
           spacing: 8.h,
           children: [
@@ -51,7 +53,6 @@ class FindDoctorCardContent extends StatelessWidget {
               spacing: 12.w,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Doctor image
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.r),
                   child: CachedNetworkImageWithShimmer(
@@ -60,49 +61,12 @@ class FindDoctorCardContent extends StatelessWidget {
                     width: 92.w,
                   ),
                 ),
-
-                // Doctor details
-                DoctorDetail(doctorModel: doctorModel),
+                Expanded(child: _DoctorDetails(doctorModel: doctorModel)),
               ],
             ),
-
-            // next available time & book button
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Next available time
-                Column(
-                  spacing: 4.h,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      AppString.nextAvailable,
-                      style: AppTextStyles.rubik13MediumMainPrimairy,
-                    ),
-
-                    // Next available value
-                    Text(
-                      doctorModel.nextAvailable,
-                      style: AppTextStyles.rubik12MediumTertiary,
-                    ),
-                  ],
-                ),
-                // Book now button
-                CustomButtom(
-                  height: 45.h,
-                  width: 100.w,
-                  title: AppString.bookNow,
-                  textStyle: AppTextStyles.rubik12MediumSecondry,
-                  borderRadius: 4.r,
-                  onTap: () {
-                    context.pushNamed(AppRoutes.selectMe, extra: doctorModel);
-                  },
-                ),
-              ],
-            ),
+            _buildBookingSection(context),
           ],
         ),
-        // Favorite button
         Align(
           alignment: Alignment.topRight,
           child: FavoriteButton(height: 22.h, width: 22.w),
@@ -110,10 +74,42 @@ class FindDoctorCardContent extends StatelessWidget {
       ],
     );
   }
+
+  Widget _buildBookingSection(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          spacing: 4.h,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              AppString.nextAvailable,
+              style: AppTextStyles.rubik13MediumMainPrimairy,
+            ),
+            Text(
+              doctorModel.nextAvailable,
+              style: AppTextStyles.rubik12MediumTertiary,
+            ),
+          ],
+        ),
+        CustomButtom(
+          height: 45.h,
+          width: 100.w,
+          title: AppString.bookNow,
+          textStyle: AppTextStyles.rubik12MediumSecondry,
+          borderRadius: 4.r,
+          onTap: () =>
+              context.pushNamed(AppRoutes.selectMe, extra: doctorModel),
+        ),
+      ],
+    );
+  }
 }
 
-class DoctorDetail extends StatelessWidget {
-  const DoctorDetail({super.key, required this.doctorModel});
+class _DoctorDetails extends StatelessWidget {
+  const _DoctorDetails({required this.doctorModel});
+
   final DoctorModel doctorModel;
 
   @override
@@ -121,32 +117,26 @@ class DoctorDetail extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        //  name
         Text(
           doctorModel.name,
           style: AppTextStyles.rubik18MediumPrimariy,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        //  category
         Text(
           doctorModel.category,
           style: AppTextStyles.rubik13RegularMainPrimairy,
         ),
-        //  experience
         Text(
           '${doctorModel.yearsExperience} ${AppString.yearsExperience}',
           style: AppTextStyles.rubik12LightTertiary,
         ),
-        //  rating & patient stories
         Row(
           spacing: 20.w,
-
           children: [
-            _buildInfoItem(icon: Icons.circle, value: '${doctorModel.rating}'),
-
+            _buildInfoItem(icon: Icons.star, value: '${doctorModel.rating}'),
             _buildInfoItem(
-              icon: Icons.circle,
+              icon: Icons.people,
               value:
                   '${doctorModel.patientStories} ${AppString.patientStories}',
             ),
@@ -158,10 +148,17 @@ class DoctorDetail extends StatelessWidget {
 
   Widget _buildInfoItem({required IconData icon, required String value}) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Icon(icon, size: 18.h, color: AppColors.primaryColor),
         SizedBox(width: 4.w),
-        Text(value, style: AppTextStyles.rubik12LightTertiary),
+        Flexible(
+          child: Text(
+            value,
+            style: AppTextStyles.rubik12LightTertiary,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
-import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/data/test_data/doctor_data.dart';
@@ -19,12 +20,11 @@ class FeaturedDoctorView extends StatelessWidget {
         child: Padding(
           padding: AppPadding.paddingH20V20,
           child: Column(
+            spacing: 20.h,
             children: [
               const CustomAppBar(title: AppString.featureDoctor),
-              SizedBox(height: 20.h),
               SearchInputField(hintText: AppString.searchHint),
-              SizedBox(height: 20.h),
-              const Expanded(child: FeaturedDoctorViewBody()),
+              const Expanded(child: _FeaturedDoctorViewBody()),
             ],
           ),
         ),
@@ -33,22 +33,25 @@ class FeaturedDoctorView extends StatelessWidget {
   }
 }
 
-class FeaturedDoctorViewBody extends StatelessWidget {
-  const FeaturedDoctorViewBody({super.key});
+class _FeaturedDoctorViewBody extends StatelessWidget {
+  const _FeaturedDoctorViewBody();
   @override
   Widget build(BuildContext context) {
     List<DoctorModel> doctors = DoctorData.featuredDoctors;
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+    return CustomFadeIn(
+      direction: FadeDirection.up,
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemCount: doctors.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FeaturedDoctorCard(doctorModel: doctors[index]),
+          );
+        },
       ),
-      itemCount: doctors.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: FeaturedDoctorCard(doctorModel: doctors[index]),
-        );
-      },
     );
   }
 }

@@ -9,68 +9,68 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelectMeCard extends StatelessWidget {
   const SelectMeCard({super.key, required this.doctor});
+
   final DoctorModel doctor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10.r),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
-        color: AppColors.secondaryColor,
-      ),
+      decoration: _buildCardDecoration(),
       child: Stack(
         children: [
-          Row(
-            spacing: 12.w,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Image
-              SizedBox(
-                width: 80.w,
-                height: 80.h,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(4.r),
-                  child: CachedNetworkImageWithShimmer(imageUrl: doctor.image),
-                ),
-              ),
-
-              //  doctor details
-              Expanded(
-                child: Column(
-                  spacing: 8.h,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // name
-                    Text(
-                      doctor.name,
-                      style: AppTextStyles.rubik16MediumPrimary,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-
-                    // category
-                    Text(
-                      doctor.category,
-                      style: AppTextStyles.rubik12LightTertiary,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-
-                    // Custom rating bar
-                    CustomRatingBar(rating: doctor.rating),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          // Favorite
+          _buildMainContent(),
           Align(
             alignment: Alignment.topRight,
             child: FavoriteButton(height: 20.h, width: 20.w),
           ),
         ],
       ),
+    );
+  }
+
+  BoxDecoration _buildCardDecoration() {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(12.r),
+      color: AppColors.secondaryColor,
+    );
+  }
+
+  Widget _buildMainContent() {
+    return Row(
+      spacing: 12.w,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 80.w,
+          height: 80.h,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(4.r),
+            child: CachedNetworkImageWithShimmer(imageUrl: doctor.image),
+          ),
+        ),
+        Expanded(
+          child: Column(
+            spacing: 8.h,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                doctor.name,
+                style: AppTextStyles.rubik16MediumPrimary,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                doctor.category,
+                style: AppTextStyles.rubik12LightTertiary,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              CustomRatingBar(rating: doctor.rating),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

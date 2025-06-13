@@ -3,8 +3,8 @@ import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 final List<FakeUser> fakeUsers = [
   FakeUser(
     id: '1',
-    name: 'Emma Johnson',
-    imageUrl: 'https://randomuser.me/api/portraits/women/1.jpg',
+    name: 'Mahmoud Mohamed',
+    imageUrl: 'https://avatars.githubusercontent.com/u/195898243?v=4',
     email: 'emma.johnson@example.com',
     phone: '+1 555 123 4567',
     location: 'New York, USA',

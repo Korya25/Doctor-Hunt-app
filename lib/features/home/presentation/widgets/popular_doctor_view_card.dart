@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopularDoctorViewCard extends StatelessWidget {
-  final DoctorModel doctor;
-
   const PopularDoctorViewCard({super.key, required this.doctor});
+
+  final DoctorModel doctor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +18,48 @@ class PopularDoctorViewCard extends StatelessWidget {
       elevation: 1.h,
       borderRadius: BorderRadius.circular(8.r),
       child: Container(
-        height: 104.h,
-        decoration: BoxDecoration(
-          color: AppColors.secondaryColor,
-          borderRadius: BorderRadius.circular(8.r),
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+        height: 120.h,
+        decoration: _buildCardDecoration(),
         child: Stack(
           children: [
-            buildDoctorInfo(),
+            Row(
+              spacing: 12.w,
+              children: [
+                SizedBox(
+                  width: 85.w,
+                  height: 85.h,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.r),
+                    child: CachedNetworkImageWithShimmer(
+                      imageUrl: doctor.image,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        doctor.name,
+                        style: AppTextStyles.rubik18MediumPrimariy,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 4.h),
+                      Text(
+                        doctor.category,
+                        style: AppTextStyles.rubik14LightTiary,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 8.h),
+                      _buildRatingSection(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
             Align(
               alignment: Alignment.topRight,
               child: FavoriteButton(height: 17.h),
@@ -37,50 +70,14 @@ class PopularDoctorViewCard extends StatelessWidget {
     );
   }
 
-  Widget buildDoctorInfo() {
-    return Row(
-      spacing: 12.w,
-      children: [
-        SizedBox(
-          width: 85.w,
-          height: 85.h,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.r),
-            child: CachedNetworkImageWithShimmer(imageUrl: doctor.image),
-          ),
-        ),
-        buildDoctorDetails(),
-      ],
+  BoxDecoration _buildCardDecoration() {
+    return BoxDecoration(
+      color: AppColors.secondaryColor,
+      borderRadius: BorderRadius.circular(8.r),
     );
   }
 
-  Widget buildDoctorDetails() {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            doctor.name,
-            style: AppTextStyles.rubik18MediumPrimariy,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            doctor.category,
-            style: AppTextStyles.rubik14LightTiary,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          SizedBox(height: 8.h),
-          buildRatingRow(),
-        ],
-      ),
-    );
-  }
-
-  Widget buildRatingRow() {
+  Widget _buildRatingSection() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

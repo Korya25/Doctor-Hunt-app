@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
-import 'package:doctor_hunt/core/presentation/widgets/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_vertical_list_view.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/features/home/data/test_data/doctor_data.dart';
@@ -19,12 +19,14 @@ class PopularDoctorView extends StatelessWidget {
         child: Padding(
           padding: AppPadding.paddingH20V20,
           child: Column(
+            spacing: 20.h,
             children: [
-              const CustomAppBar(title: AppString.popularDoctors),
-              SizedBox(height: 20.h),
+              // App BAr
+              CustomAppBar(title: AppString.popularDoctors),
+              // Search Input Field
               SearchInputField(hintText: AppString.searchHint),
-              SizedBox(height: 20.h),
-              const Expanded(child: PopularDoctorViewList()),
+              //
+              Expanded(child: _PopularDoctorViewList()),
             ],
           ),
         ),
@@ -33,8 +35,8 @@ class PopularDoctorView extends StatelessWidget {
   }
 }
 
-class PopularDoctorViewList extends StatelessWidget {
-  const PopularDoctorViewList({super.key});
+class _PopularDoctorViewList extends StatelessWidget {
+  const _PopularDoctorViewList();
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +44,8 @@ class PopularDoctorViewList extends StatelessWidget {
 
     return CustomVerticalListView(
       itemCount: doctors.length,
-      itemBuilder: (context, index) {
-        return PopularDoctorViewCard(doctor: doctors[index]);
-      },
+      itemBuilder: (context, index) =>
+          PopularDoctorViewCard(doctor: doctors[index]),
     );
   }
 }

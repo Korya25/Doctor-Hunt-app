@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +19,7 @@ class CustomHomeSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 12.h),
-          headerSection,
+          CustomFadeIn(direction: FadeDirection.left, child: headerSection),
           SizedBox(height: 12.h),
 
           horizontallistView,

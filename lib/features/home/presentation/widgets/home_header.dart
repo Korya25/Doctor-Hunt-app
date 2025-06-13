@@ -2,6 +2,9 @@ import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
+import 'package:doctor_hunt/core/presentation/widgets/fade_slide_in.dart';
+import 'package:doctor_hunt/core/presentation/widgets/transform_animated_widget.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -45,10 +48,13 @@ class HomeHeader extends StatelessWidget {
             height: headerHeight.h,
             child: Row(
               children: [
-                buildText(),
+                FadeSlideIn(child: buildText()),
                 const Spacer(),
-                ClipOval(
-                  child: CachedNetworkImageWithShimmer(imageUrl: userImage),
+                TransformAnimatedWidget(
+                  flip: true,
+                  child: ClipOval(
+                    child: CachedNetworkImageWithShimmer(imageUrl: userImage),
+                  ),
                 ),
               ],
             ),
@@ -61,7 +67,11 @@ class HomeHeader extends StatelessWidget {
           right: 0,
           child: Padding(
             padding: AppPadding.paddingH20,
-            child: const SearchInputField(hintText: AppString.searchHint),
+            child: CustomFadeIn(
+              direction: FadeDirection.left,
+              duration: 500,
+              child: const SearchInputField(hintText: AppString.searchHint),
+            ),
           ),
         ),
       ],
