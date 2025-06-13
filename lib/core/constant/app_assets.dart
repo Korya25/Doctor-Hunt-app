@@ -37,4 +37,17 @@ class AppIconsSvgs {
 
   static const String google = 'assets/icons/google.svg';
   static const String facebook = 'assets/icons/facebook.svg';
+
+  // menu
+  static const String close = 'assets/icons/close.svg';
+  static const String medicalRecords = 'assets/icons/medicalrecord.svg';
+  static const String payments = 'assets/icons/payments.svg';
+  static const String medicineOrders = 'assets/icons/medicine_orders.svg';
+  static const String privacyPolicy = 'assets/icons/privacy_policy.svg';
+  static const String settings = 'assets/icons/settings.svg';
+  static const String logOut = 'assets/icons/log_out.svg';
+  static const String phone = 'assets/icons/phone.svg';
+  static const String helpCenter = 'assets/icons/help_center.svg';
+  static const String person = 'assets/icons/person.svg';
+  static const String testBookings = 'assets/icons/test_bookings.svg';
 }

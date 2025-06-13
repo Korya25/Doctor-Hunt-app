@@ -8,4 +8,5 @@ class AppRoutes {
   static const String featuredDoctors = '/featuredDoctors';
   static const String loginView = '/loginView';
   static const String signupView = '/signupView';
+  static const String menuView = '/menuView';
 }

@@ -90,4 +90,15 @@ class AppString {
       'Please agree to the terms and conditions.';
 
   static const String loginSuccessfully = 'Login successfully!';
+
+  // Menu.
+  static const String mDoctors = "My Doctors";
+  static const String medicalRecords = "Medical Records";
+  static const String payments = "Payments ";
+  static const String medicineOrders = "Medicine Orders";
+  static const String testBookings = "Test Bookings";
+  static const String privacyPolicy = "Privacy & Policy";
+  static const String helpCenter = "Help Center";
+  static const String settings = "Settings";
+  static const String logout = "Logout";
 }
