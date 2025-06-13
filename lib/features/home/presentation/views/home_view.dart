@@ -109,7 +109,7 @@ class HomeView extends StatelessWidget {
           onSeeAllPressed: () => _navigateToPopularDoctors(context),
         ),
         horizontallistView: CustomHorizontalListView(
-          height: 270.h,
+          height: 240.h,
           itemCount: DoctorData.popularDoctors.length,
           itemBuilder: (context, index) {
             final doctor = DoctorData.popularDoctors[index];

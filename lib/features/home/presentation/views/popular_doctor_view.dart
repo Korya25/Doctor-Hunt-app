@@ -19,12 +19,14 @@ class PopularDoctorView extends StatelessWidget {
         child: Padding(
           padding: AppPadding.paddingH20V20,
           child: Column(
+            spacing: 20.h,
             children: [
-              const CustomAppBar(title: AppString.popularDoctors),
-              SizedBox(height: 20.h),
+              // App BAr
+              CustomAppBar(title: AppString.popularDoctors),
+              // Search Input Field
               SearchInputField(hintText: AppString.searchHint),
-              SizedBox(height: 20.h),
-              const Expanded(child: PopularDoctorViewList()),
+              //
+              Expanded(child: _PopularDoctorViewList()),
             ],
           ),
         ),
@@ -33,8 +35,8 @@ class PopularDoctorView extends StatelessWidget {
   }
 }
 
-class PopularDoctorViewList extends StatelessWidget {
-  const PopularDoctorViewList({super.key});
+class _PopularDoctorViewList extends StatelessWidget {
+  const _PopularDoctorViewList();
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +44,8 @@ class PopularDoctorViewList extends StatelessWidget {
 
     return CustomVerticalListView(
       itemCount: doctors.length,
-      itemBuilder: (context, index) {
-        return PopularDoctorViewCard(doctor: doctors[index]);
-      },
+      itemBuilder: (context, index) =>
+          PopularDoctorViewCard(doctor: doctors[index]),
     );
   }
 }

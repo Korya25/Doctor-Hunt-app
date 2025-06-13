@@ -24,7 +24,7 @@ class PopularDoctorCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
           color: const Color.fromARGB(240, 255, 255, 255),
           child: SizedBox(
-            width: 190.w,
+            width: 150.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
