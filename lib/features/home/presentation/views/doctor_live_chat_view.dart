@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/features/home/data/models/chat_message_model.dart';
@@ -17,6 +15,7 @@ class DoctorLiveChatView extends StatefulWidget {
     required this.doctorModel,
     required this.user,
   });
+
   final FakeUser user;
   final DoctorModel doctorModel;
 
@@ -25,29 +24,36 @@ class DoctorLiveChatView extends StatefulWidget {
 }
 
 class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
-  final TextEditingController messageController = TextEditingController();
-  final List<ChatMessage> messages = [];
+  late final TextEditingController _messageController;
+  final List<ChatMessage> _messages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _messageController = TextEditingController();
+  }
 
   @override
   void dispose() {
-    messageController.dispose();
+    _messageController.dispose();
     super.dispose();
   }
 
-  void sendMessage() {
-    if (messageController.text.trim().isNotEmpty) {
-      setState(() {
-        messages.insert(
-          0,
-          ChatMessage(
-            text: messageController.text,
-            isDoctor: false,
-            timestamp: DateTime.now(),
-          ),
-        );
-        messageController.clear();
-      });
-    }
+  void _handleSendMessage() {
+    final messageText = _messageController.text.trim();
+    if (messageText.isEmpty) return;
+
+    setState(() {
+      _messages.insert(
+        0,
+        ChatMessage(
+          text: messageText,
+          isDoctor: false,
+          timestamp: DateTime.now(),
+        ),
+      );
+      _messageController.clear();
+    });
   }
 
   @override
@@ -55,7 +61,7 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
     return Scaffold(
       body: Stack(
         children: [
-          buildBackground(),
+          _buildBackground(),
           SafeArea(
             child: Column(
               children: [
@@ -64,16 +70,16 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
                   child: HeaderLiveChat(image: widget.doctorModel.image),
                 ),
                 Expanded(
-                  child: MessageListLiveChats(
-                    messages: messages,
+                  child: MessageListLiveChat(
+                    messages: _messages,
                     user: widget.user,
                   ),
                 ),
                 CustomFadeIn(
                   direction: FadeDirection.right,
                   child: SendMessageField(
-                    controller: messageController,
-                    onSend: sendMessage,
+                    controller: _messageController,
+                    onSend: _handleSendMessage,
                   ),
                 ),
               ],
@@ -84,7 +90,7 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
     );
   }
 
-  Widget buildBackground() {
+  Widget _buildBackground() {
     return Positioned.fill(
       child: Stack(
         children: [
@@ -103,8 +109,7 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
-                  // ignore: deprecated_member_use
-                  colors: [Colors.black.withOpacity(0.8), Colors.transparent],
+                  colors: [Colors.black.withAlpha(200), Colors.transparent],
                 ),
               ),
             ),
