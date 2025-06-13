@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/fade_slide_in.dart';
-import 'package:doctor_hunt/features/onboarding/presentation/widgets/onboarding_animated_image.dart';
+import 'package:doctor_hunt/core/presentation/widgets/scale_animated_widget.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/title_sub.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +22,12 @@ class OnboardingItems extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         // Image
-        OnboardingAnimatedImage(image: image),
+        TransformAnimatedWidget(
+          child: CircleAvatar(
+            radius: 180.r,
+            backgroundImage: AssetImage(image),
+          ),
+        ),
         // Title and Subtitle
         Padding(
           padding: AppPadding.paddingH25,

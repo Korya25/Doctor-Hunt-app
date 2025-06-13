@@ -11,7 +11,7 @@ class LiveDoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 110.w,
+      width: 116.w,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.r),
         child: Stack(
