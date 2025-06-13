@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_vertical_list_view.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
@@ -11,7 +12,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FindDoctorView extends StatelessWidget {
   const FindDoctorView({super.key, required this.categoryCardModel});
+
   final CategoryCardModel categoryCardModel;
+
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
@@ -19,25 +22,24 @@ class FindDoctorView extends StatelessWidget {
         child: Padding(
           padding: AppPadding.paddingH20V20,
           child: Column(
-            spacing: 10.h,
+            spacing: 26.h,
             children: [
-              // App bar
               CustomAppBar(title: AppString.findDoctor),
-              SizedBox(height: 16.h),
+              CustomFadeIn(
+                direction: FadeDirection.right,
+                child: const SearchInputField(hintText: AppString.searchHint),
+              ),
 
-              // Search input field
-              SearchInputField(hintText: AppString.searchHint),
-              SizedBox(height: 16.h),
-
-              // Find Doctor List
               Expanded(
-                child: CustomVerticalListView(
-                  itemCount: categoryCardModel.doctors.length,
-                  itemBuilder: (context, index) {
-                    return FindDoctorCard(
-                      doctorModel: categoryCardModel.doctors[index],
-                    );
-                  },
+                child: CustomFadeIn(
+                  direction: FadeDirection.up,
+                  child: CustomVerticalListView(
+                    itemCount: categoryCardModel.doctors.length,
+                    itemBuilder: (context, index) {
+                      final doctor = categoryCardModel.doctors[index];
+                      return FindDoctorCard(doctorModel: doctor);
+                    },
+                  ),
                 ),
               ),
             ],

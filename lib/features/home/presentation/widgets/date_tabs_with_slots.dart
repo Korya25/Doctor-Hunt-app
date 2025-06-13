@@ -14,8 +14,8 @@ class DateTabsWithSlots extends StatefulWidget {
 }
 
 class _DateTabsWithSlotsState extends State<DateTabsWithSlots> {
-  int selectedDateTab = 1;
-  String selectedTime = '2:00 PM';
+  int _selectedDateTab = 1;
+  String _selectedTime = '2:00 PM';
 
   @override
   Widget build(BuildContext context) {
@@ -23,29 +23,33 @@ class _DateTabsWithSlotsState extends State<DateTabsWithSlots> {
       spacing: 14.h,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Date Tabs horizontal list
+        // Date Tabs
         CustomHorizontalListView(
           height: 80.h,
           itemCount: DoctorData.dateTabs.length,
-          itemBuilder: (context, index) {
-            return DateTab(
-              date: DoctorData.dateTabs[index],
-              slotsAvailable: DoctorData.getSlotsAvailableText(index),
-              isSelected: selectedDateTab == index,
-              onTap: () => setState(() => selectedDateTab = index),
-            );
-          },
+          itemBuilder: (context, index) => DateTab(
+            date: DoctorData.dateTabs[index],
+            slotsAvailable: DoctorData.getSlotsAvailableText(index),
+            isSelected: _selectedDateTab == index,
+            onTap: () {
+              setState(() {
+                _selectedDateTab = index;
+              });
+            },
+          ),
         ),
-
+        // Date
         Text(
-          DoctorData.dateTabs[selectedDateTab],
+          DoctorData.dateTabs[_selectedDateTab],
           style: AppTextStyles.rubik18MediumPrimariy,
         ),
-
-        // Time slots sections
         TimeSlotsSections(
-          selectedTime: selectedTime,
-          onTimeSelected: (time) => setState(() => selectedTime = time),
+          selectedTime: _selectedTime,
+          onTimeSelected: (value) {
+            setState(() {
+              _selectedTime = value;
+            });
+          },
         ),
       ],
     );

@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/date_tabs_with_slots.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelectMeView extends StatelessWidget {
   const SelectMeView({super.key, required this.doctor});
+
   final DoctorModel doctor;
 
   @override
@@ -24,7 +26,7 @@ class SelectMeView extends StatelessWidget {
               CustomAppBar(title: AppString.selectMe),
               Expanded(
                 child: SingleChildScrollView(
-                  child: SelectMeViewBody(doctor: doctor),
+                  child: _SelectMeViewBody(doctor: doctor),
                 ),
               ),
             ],
@@ -35,8 +37,9 @@ class SelectMeView extends StatelessWidget {
   }
 }
 
-class SelectMeViewBody extends StatelessWidget {
-  const SelectMeViewBody({super.key, required this.doctor});
+class _SelectMeViewBody extends StatelessWidget {
+  const _SelectMeViewBody({required this.doctor});
+
   final DoctorModel doctor;
 
   @override
@@ -45,11 +48,14 @@ class SelectMeViewBody extends StatelessWidget {
       spacing: 14.h,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Doctor Select Me card
-        SelectMeCard(doctor: doctor),
-
-        // Date tabs and time slots
-        DateTabsWithSlots(),
+        CustomFadeIn(
+          direction: FadeDirection.right,
+          child: SelectMeCard(doctor: doctor),
+        ),
+        CustomFadeIn(
+          direction: FadeDirection.up,
+          child: const DateTabsWithSlots(),
+        ),
       ],
     );
   }
