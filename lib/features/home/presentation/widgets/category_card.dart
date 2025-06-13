@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/presentation/widgets/transform_animated_widget.dart';
 import 'package:doctor_hunt/features/home/data/models/category_card_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,11 +19,13 @@ class CategoryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
       ),
       child: Center(
-        child: SvgPicture.asset(
-          cardModel.svgPath,
-          colorFilter: cardModel.gradient != null
-              ? const ColorFilter.mode(Colors.white, BlendMode.srcIn)
-              : null,
+        child: TransformAnimatedWidget(
+          child: SvgPicture.asset(
+            cardModel.svgPath,
+            colorFilter: cardModel.gradient != null
+                ? const ColorFilter.mode(Colors.white, BlendMode.srcIn)
+                : null,
+          ),
         ),
       ),
     );

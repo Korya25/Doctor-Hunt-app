@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_header_section.dart';
@@ -28,116 +29,140 @@ class HomeView extends StatelessWidget {
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
-            // Header Pin When Scroll
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 190.h,
-                width: double.infinity,
-                child: HomeHeader(
-                  userName: fakeUsers[0].name,
-                  userImage: fakeUsers[0].imageUrl,
-                ),
-              ),
-            ),
-
-            // Live Doctors
-            SliverToBoxAdapter(
-              child: CustomHomeSection(
-                headerSection: CustomHeaderSection(
-                  title: AppString.liveDoctors,
-                ),
-                horizontallistView: CustomHorizontalListView(
-                  height: 170.h,
-                  itemCount: DoctorData.liveDoctors.length,
-                  itemBuilder: (context, index) {
-                    final doctorModel = DoctorData.liveDoctors[index];
-                    return GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
-                          AppRoutes.doctorLiveChat,
-                          extra: {'doctor': doctorModel, 'user': fakeUsers[0]},
-                        );
-                      },
-                      child: LiveDoctorCard(doctorModel: doctorModel),
-                    );
-                  },
-                ),
-              ),
-            ),
-
-            SliverToBoxAdapter(child: SizedBox(height: 28.h)),
-
-            // Categories
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: AppPadding.paddingH20,
-                child: CustomHorizontalListView(
-                  height: 85.h,
-                  itemCount: CategoryCardModel.categories.length,
-                  itemBuilder: (context, index) {
-                    final category = CategoryCardModel.categories[index];
-                    return GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
-                          AppRoutes.findDoctor,
-                          extra: category,
-                        );
-                      },
-                      child: CategoryCard(cardModel: category),
-                    );
-                  },
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 18.h)),
-
-            // Popular Doctors
-            SliverToBoxAdapter(
-              child: CustomHomeSection(
-                headerSection: CustomHeaderSection(
-                  title: AppString.popularDoctors,
-                  activeSeeAll: true,
-                  onSeeAllPressed: () {
-                    context.pushNamed(AppRoutes.popularDoctors);
-                  },
-                ),
-                horizontallistView: CustomHorizontalListView(
-                  height: 270.h,
-                  itemCount: DoctorData.popularDoctors.length,
-                  itemBuilder: (context, index) {
-                    final doctorModel = DoctorData.popularDoctors[index];
-                    return PopularDoctorCard(doctorModel: doctorModel);
-                  },
-                ),
-              ),
-            ),
-
-            // Featured Doctors
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: CustomHomeSection(
-                  headerSection: CustomHeaderSection(
-                    title: AppString.featureDoctor,
-                    activeSeeAll: true,
-                    onSeeAllPressed: () {
-                      context.pushNamed(AppRoutes.featuredDoctors);
-                    },
-                  ),
-                  horizontallistView: CustomHorizontalListView(
-                    height: 170.h,
-                    itemCount: DoctorData.featuredDoctors.length,
-                    itemBuilder: (context, index) {
-                      final doctorModel = DoctorData.featuredDoctors[index];
-                      return FeaturedDoctorCard(doctorModel: doctorModel);
-                    },
-                  ),
-                ),
-              ),
-            ),
+            _buildHeader(),
+            _buildLiveDoctorsSection(context),
+            _buildSpacing(28.h),
+            _buildCategoriesSection(context),
+            _buildSpacing(18.h),
+            _buildPopularDoctorsSection(context),
+            _buildFeaturedDoctorsSection(context),
           ],
         ),
       ),
     );
+  }
+
+  SliverToBoxAdapter _buildHeader() {
+    return SliverToBoxAdapter(
+      child: SizedBox(
+        height: 190.h,
+        width: double.infinity,
+        child: CustomFadeIn(
+          direction: FadeDirection.down,
+          child: HomeHeader(
+            userName: fakeUsers[0].name,
+            userImage: fakeUsers[0].imageUrl,
+          ),
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildLiveDoctorsSection(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: CustomHomeSection(
+        headerSection: const CustomHeaderSection(title: AppString.liveDoctors),
+        horizontallistView: CustomHorizontalListView(
+          height: 170.h,
+          itemCount: DoctorData.liveDoctors.length,
+          itemBuilder: (context, index) => _buildLiveDoctorItem(context, index),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLiveDoctorItem(BuildContext context, int index) {
+    final doctor = DoctorData.liveDoctors[index];
+    return GestureDetector(
+      onTap: () => _navigateToLiveChat(context, doctor),
+      child: LiveDoctorCard(doctorModel: doctor),
+    );
+  }
+
+  SliverToBoxAdapter _buildCategoriesSection(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: AppPadding.paddingH20,
+        child: CustomHorizontalListView(
+          height: 85.h,
+          itemCount: CategoryCardModel.categories.length,
+          itemBuilder: (context, index) => _buildCategoryItem(context, index),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCategoryItem(BuildContext context, int index) {
+    final category = CategoryCardModel.categories[index];
+    return GestureDetector(
+      onTap: () => _navigateToFindDoctor(context, category),
+      child: CategoryCard(cardModel: category),
+    );
+  }
+
+  SliverToBoxAdapter _buildPopularDoctorsSection(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: CustomHomeSection(
+        headerSection: CustomHeaderSection(
+          title: AppString.popularDoctors,
+          activeSeeAll: true,
+          onSeeAllPressed: () => _navigateToPopularDoctors(context),
+        ),
+        horizontallistView: CustomHorizontalListView(
+          height: 270.h,
+          itemCount: DoctorData.popularDoctors.length,
+          itemBuilder: (context, index) {
+            final doctor = DoctorData.popularDoctors[index];
+            return PopularDoctorCard(doctorModel: doctor);
+          },
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildFeaturedDoctorsSection(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
+        child: CustomHomeSection(
+          headerSection: CustomHeaderSection(
+            title: AppString.featureDoctor,
+            activeSeeAll: true,
+            onSeeAllPressed: () => _navigateToFeaturedDoctors(context),
+          ),
+          horizontallistView: CustomHorizontalListView(
+            height: 170.h,
+            itemCount: DoctorData.featuredDoctors.length,
+            itemBuilder: (context, index) {
+              final doctor = DoctorData.featuredDoctors[index];
+              return FeaturedDoctorCard(doctorModel: doctor);
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildSpacing(double height) {
+    return SliverToBoxAdapter(child: SizedBox(height: height));
+  }
+
+  void _navigateToLiveChat(BuildContext context, dynamic doctor) {
+    context.pushNamed(
+      AppRoutes.doctorLiveChat,
+      extra: {'doctor': doctor, 'user': fakeUsers[0]},
+    );
+  }
+
+  void _navigateToFindDoctor(BuildContext context, dynamic category) {
+    context.pushNamed(AppRoutes.findDoctor, extra: category);
+  }
+
+  void _navigateToPopularDoctors(BuildContext context) {
+    context.pushNamed(AppRoutes.popularDoctors);
+  }
+
+  void _navigateToFeaturedDoctors(BuildContext context) {
+    context.pushNamed(AppRoutes.featuredDoctors);
   }
 }

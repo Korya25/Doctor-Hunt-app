@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/features/home/data/models/chat_message_model.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
 import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
@@ -58,16 +59,22 @@ class _DoctorLiveChatViewState extends State<DoctorLiveChatView> {
           SafeArea(
             child: Column(
               children: [
-                HeaderLiveChat(image: widget.doctorModel.image),
+                CustomFadeIn(
+                  direction: FadeDirection.left,
+                  child: HeaderLiveChat(image: widget.doctorModel.image),
+                ),
                 Expanded(
                   child: MessageListLiveChats(
                     messages: messages,
                     user: widget.user,
                   ),
                 ),
-                SendMessageField(
-                  controller: messageController,
-                  onSend: sendMessage,
+                CustomFadeIn(
+                  direction: FadeDirection.right,
+                  child: SendMessageField(
+                    controller: messageController,
+                    onSend: sendMessage,
+                  ),
                 ),
               ],
             ),

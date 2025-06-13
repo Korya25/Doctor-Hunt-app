@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/fade_slide_in.dart';
-import 'package:doctor_hunt/core/presentation/widgets/scale_animated_widget.dart';
+import 'package:doctor_hunt/core/presentation/widgets/transform_animated_widget.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/widgets/title_sub.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

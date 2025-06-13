@@ -4,7 +4,7 @@ import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/fade_slide_in.dart';
-import 'package:doctor_hunt/core/presentation/widgets/scale_animated_widget.dart';
+import 'package:doctor_hunt/core/presentation/widgets/transform_animated_widget.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
