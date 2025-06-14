@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_hunt/core/constant/app_colors.dart';
+import 'package:doctor_hunt/core/presentation/widgets/transform_animated_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -13,6 +14,9 @@ class CachedNetworkImageWithShimmer extends StatelessWidget {
     this.defaultIcon = Icons.person,
     this.height,
     this.width,
+    this.dialogMaxWidth = 300,
+    this.dialogMaxHeight = 400,
+    this.dialogAspectRatio = 3 / 4,
   });
 
   final String imageUrl;
@@ -22,6 +26,9 @@ class CachedNetworkImageWithShimmer extends StatelessWidget {
   final IconData defaultIcon;
   final double? height;
   final double? width;
+  final double dialogMaxWidth;
+  final double dialogMaxHeight;
+  final double dialogAspectRatio;
 
   @override
   Widget build(BuildContext context) {
@@ -68,15 +75,34 @@ class CachedNetworkImageWithShimmer extends StatelessWidget {
   void _showImagePreviewDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (_) => Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: CachedNetworkImage(
-            imageUrl: imageUrl,
-            fit: BoxFit.cover,
-            placeholder: (context, url) => _buildDialogShimmer(),
-            errorWidget: (context, url, error) => _buildDialogErrorWidget(),
+      builder: (_) => Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: dialogMaxWidth,
+            maxHeight: dialogMaxHeight,
+          ),
+          child: AspectRatio(
+            aspectRatio: dialogAspectRatio,
+            child: TransformAnimatedWidget(
+              duration: const Duration(milliseconds: 300),
+              rotation: AnimatedTransformValue(begin: 0, end: 6.28),
+              child: Dialog(
+                insetPadding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: CachedNetworkImage(
+                    imageUrl: imageUrl,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => _buildDialogShimmer(),
+                    errorWidget: (context, url, error) =>
+                        _buildDialogErrorWidget(),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -87,20 +113,16 @@ class CachedNetworkImageWithShimmer extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: AppColors.shimmerBase,
       highlightColor: AppColors.shimmerHighlight,
-      child: Container(
-        color: Colors.grey[300],
-        width: double.infinity,
-        height: 300,
-      ),
+      child: Container(color: Colors.grey[300]),
     );
   }
 
   Widget _buildDialogErrorWidget() {
     return Container(
       color: Colors.grey[200],
-      width: double.infinity,
-      height: 300,
-      child: Icon(defaultIcon, size: 60, color: Colors.grey[600]),
+      child: Center(
+        child: Icon(defaultIcon, size: 60, color: Colors.grey[600]),
+      ),
     );
   }
 }
