@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_hunt/core/constant/app_assets.dart';
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
 import 'package:doctor_hunt/core/constant/app_values.dart';
+import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_vertical_list_view.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
@@ -47,11 +47,10 @@ class _MenuHeader extends StatelessWidget {
       child: Row(
         children: [
           ClipOval(
-            child: CachedNetworkImage(
+            child: CachedNetworkImageWithShimmer(
               imageUrl: fakeUsers[0].imageUrl,
               width: 50.w,
               height: 50.w,
-              fit: BoxFit.cover,
             ),
           ),
           SizedBox(width: 12.w),

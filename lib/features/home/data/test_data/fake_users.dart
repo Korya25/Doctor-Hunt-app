@@ -4,7 +4,8 @@ final List<FakeUser> fakeUsers = [
   FakeUser(
     id: '1',
     name: 'Mahmoud Mohamed',
-    imageUrl: 'https://avatars.githubusercontent.com/u/195898243?v=4',
+    imageUrl:
+        'https://scontent.fcai21-2.fna.fbcdn.net/v/t39.30808-6/500724273_1301206675340552_6761191909203342717_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=ncFoS7xOo0wQ7kNvwGEPono&_nc_oc=AdkE1ObihhIRhBpgA2-ejewnHJoxf_qW1XiRh1q1PjhCDjM8LyQyctw7YAdC0gKlQRM&_nc_zt=23&_nc_ht=scontent.fcai21-2.fna&_nc_gid=z5sxcJZZ-8G-opQziI-caQ&oh=00_AfNAOfw7kC3IxAubXpxy0kEjhwSa2yzWZmoZ3VFb6J8Bxg&oe=6852BABF',
     email: 'emma.johnson@example.com',
     phone: '+1 555 123 4567',
     location: 'New York, USA',
