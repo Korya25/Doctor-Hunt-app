@@ -11,6 +11,7 @@ import 'package:doctor_hunt/features/home/presentation/views/find_doctor_view.da
 import 'package:doctor_hunt/features/home/presentation/views/home_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/popular_doctor_view.dart';
 import 'package:doctor_hunt/features/home/presentation/views/select_me_view.dart';
+import 'package:doctor_hunt/features/menu/presentation/views/menu_view.dart';
 import 'package:doctor_hunt/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -81,6 +82,14 @@ class AppRouter {
 
         builder: (context, state) {
           return FeaturedDoctorView();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.menuView,
+        name: AppRoutes.menuView,
+
+        builder: (context, state) {
+          return MenuView();
         },
       ),
       ShellRoute(

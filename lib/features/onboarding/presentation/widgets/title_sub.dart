@@ -22,7 +22,7 @@ class TitleSub extends StatelessWidget {
           subtitle,
           maxLines: 3,
           textAlign: TextAlign.center,
-          style: AppTextStyles.rubik14RegularTiary,
+          style: AppTextStyles.rubik14RegularTertiary,
         ),
       ],
     );

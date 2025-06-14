@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_assets.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
@@ -23,7 +24,7 @@ class FeaturedDoctorCard extends StatelessWidget {
           child: SizedBox(
             width: 120.w,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              padding: AppPadding.h10v10,
               child: Column(
                 spacing: 10.h,
                 children: [
@@ -42,7 +43,7 @@ class FeaturedDoctorCard extends StatelessWidget {
                           ),
                           Text(
                             doctorModel.rating.toString(),
-                            style: AppTextStyles.rubik10MediumSecondry,
+                            style: AppTextStyles.rubik10BoldPrimary,
                           ),
                         ],
                       ),
@@ -72,7 +73,7 @@ class FeaturedDoctorCard extends StatelessWidget {
                       // price of Hour
                       Text(
                         '${doctorModel.price}/ hours',
-                        style: AppTextStyles.rubik9Lighttertiary,
+                        style: AppTextStyles.rubik9LightTertiary,
                       ),
                     ],
                   ),

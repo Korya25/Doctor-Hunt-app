@@ -30,7 +30,7 @@ class OnboardingItems extends StatelessWidget {
         ),
         // Title and Subtitle
         Padding(
-          padding: AppPadding.paddingH25,
+          padding: AppPadding.horizontal25,
           child: FadeSlideIn(
             child: TitleSub(title: title, subtitle: subtitle),
           ),

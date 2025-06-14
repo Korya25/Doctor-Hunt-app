@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: AppPadding.paddingH20V20,
+            padding: AppPadding.h20v20,
             child: Column(
               children: [
                 Gap(20.h),

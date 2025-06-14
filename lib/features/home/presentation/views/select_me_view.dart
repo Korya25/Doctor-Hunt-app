@@ -19,7 +19,7 @@ class SelectMeView extends StatelessWidget {
     return BackgroundScaffold(
       body: SafeArea(
         child: Padding(
-          padding: AppPadding.paddingH20V20,
+          padding: AppPadding.h20v20,
           child: Column(
             spacing: 18.h,
             children: [

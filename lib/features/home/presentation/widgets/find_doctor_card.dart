@@ -1,6 +1,7 @@
 // find_doctor_card.dart
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/resources/app_routes.dart';
@@ -23,7 +24,7 @@ class FindDoctorCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(8.r),
       child: Container(
         decoration: _buildCardDecoration(),
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
+        padding: AppPadding.h16v14,
         child: FindDoctorCardContent(doctorModel: doctorModel),
       ),
     );
@@ -85,7 +86,7 @@ class FindDoctorCardContent extends StatelessWidget {
           children: [
             Text(
               AppString.nextAvailable,
-              style: AppTextStyles.rubik13MediumMainPrimairy,
+              style: AppTextStyles.rubik13MediumMainPrimary,
             ),
             Text(
               doctorModel.nextAvailable,
@@ -97,7 +98,7 @@ class FindDoctorCardContent extends StatelessWidget {
           height: 45.h,
           width: 100.w,
           title: AppString.bookNow,
-          textStyle: AppTextStyles.rubik12MediumSecondry,
+          textStyle: AppTextStyles.rubik12MediumSecondary,
           borderRadius: 4.r,
           onTap: () =>
               context.pushNamed(AppRoutes.selectMe, extra: doctorModel),
@@ -119,13 +120,13 @@ class _DoctorDetails extends StatelessWidget {
       children: [
         Text(
           doctorModel.name,
-          style: AppTextStyles.rubik18MediumPrimariy,
+          style: AppTextStyles.rubik18MediumPrimary,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
         Text(
           doctorModel.category,
-          style: AppTextStyles.rubik13RegularMainPrimairy,
+          style: AppTextStyles.rubik13MediumMainPrimary,
         ),
         Text(
           '${doctorModel.yearsExperience} ${AppString.yearsExperience}',

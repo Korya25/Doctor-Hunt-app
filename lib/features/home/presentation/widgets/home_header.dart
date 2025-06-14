@@ -6,9 +6,11 @@ import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/fade_slide_in.dart';
 import 'package:doctor_hunt/core/presentation/widgets/transform_animated_widget.dart';
 import 'package:doctor_hunt/core/presentation/widgets/search_input_field.dart';
+import 'package:doctor_hunt/core/resources/app_routes.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -52,8 +54,13 @@ class HomeHeader extends StatelessWidget {
                 const Spacer(),
                 TransformAnimatedWidget(
                   flip: true,
-                  child: ClipOval(
-                    child: CachedNetworkImageWithShimmer(imageUrl: userImage),
+                  child: GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppRoutes.menuView);
+                    },
+                    child: ClipOval(
+                      child: CachedNetworkImageWithShimmer(imageUrl: userImage),
+                    ),
                   ),
                 ),
               ],
@@ -66,7 +73,7 @@ class HomeHeader extends StatelessWidget {
           left: 0,
           right: 0,
           child: Padding(
-            padding: AppPadding.paddingH20,
+            padding: AppPadding.horizontal20,
             child: CustomFadeIn(
               direction: FadeDirection.left,
               duration: 500,
@@ -85,12 +92,12 @@ class HomeHeader extends StatelessWidget {
       children: [
         Text(
           '${AppString.hi} $userName!',
-          style: AppTextStyles.rubikLight20Secondary,
+          style: AppTextStyles.rubik20LightSecondary,
         ),
         SizedBox(height: 4.h),
         Text(
           AppString.findYourDoctor,
-          style: AppTextStyles.rubikBold25Secondary,
+          style: AppTextStyles.rubik25BoldSecondary,
         ),
       ],
     );

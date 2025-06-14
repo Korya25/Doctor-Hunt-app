@@ -82,7 +82,7 @@ class HomeView extends StatelessWidget {
   SliverToBoxAdapter _buildCategoriesSection(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: AppPadding.paddingH20,
+        padding: AppPadding.horizontal20,
         child: CustomHorizontalListView(
           height: 85.h,
           itemCount: CategoryCardModel.categories.length,
@@ -123,10 +123,10 @@ class HomeView extends StatelessWidget {
   SliverToBoxAdapter _buildFeaturedDoctorsSection(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 20.0),
+        padding: AppPadding.bottom20,
         child: CustomHomeSection(
           headerSection: CustomHeaderSection(
-            title: AppString.featureDoctor,
+            title: AppString.featuredDoctor,
             activeSeeAll: true,
             onSeeAllPressed: () => _navigateToFeaturedDoctors(context),
           ),

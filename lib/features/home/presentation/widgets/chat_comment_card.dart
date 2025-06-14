@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/cached_network_image_with_shimmer.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
@@ -17,7 +18,7 @@ class ChatCommentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 16.h),
+      padding: AppPadding.bottom16,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

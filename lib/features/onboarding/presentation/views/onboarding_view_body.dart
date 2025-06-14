@@ -73,7 +73,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               ),
             ),
             Padding(
-              padding: AppPadding.paddingH25,
+              padding: AppPadding.horizontal25,
               child: OnboardingButtom(
                 // add dut=ratiom
                 getStartedOnTap: () {

@@ -22,12 +22,12 @@ class CustomAppBar extends StatelessWidget {
           GestureDetector(
             onTap: onBackPressed ?? () => Navigator.pop(context),
             child: SvgPicture.asset(
-              AppIconsSvgs.backButtom,
+              AppIconsSvgs.backButton,
               height: 30.h,
               width: 30.w,
             ),
           ),
-          Text(title, style: AppTextStyles.rubik18RugularPrimariy),
+          Text(title, style: AppTextStyles.rubik18RegularPrimary),
         ],
       ),
     );

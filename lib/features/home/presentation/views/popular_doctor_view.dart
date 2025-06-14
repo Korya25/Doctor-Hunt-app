@@ -17,7 +17,7 @@ class PopularDoctorView extends StatelessWidget {
     return BackgroundScaffold(
       body: SafeArea(
         child: Padding(
-          padding: AppPadding.paddingH20V20,
+          padding: AppPadding.h20v20,
           child: Column(
             spacing: 20.h,
             children: [

@@ -55,7 +55,7 @@ class SocialButtons extends StatelessWidget {
         spacing: 12.w,
         children: [
           SvgPicture.asset(svgIcon, height: 24.h, width: 24.w),
-          Text(title, maxLines: 1, style: AppTextStyles.rubik16Lighttertiary),
+          Text(title, maxLines: 1, style: AppTextStyles.rubik16LightTertiary),
         ],
       ),
     );

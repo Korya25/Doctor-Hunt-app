@@ -14,7 +14,7 @@ class CustomHomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppPadding.paddingH20,
+      padding: AppPadding.horizontal20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

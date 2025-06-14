@@ -10,28 +10,20 @@ class CustomBottomSheetContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: _buildContainerDecoration(),
-      padding: _buildPadding(context),
-      child: child,
-    );
-  }
-
-  BoxDecoration _buildContainerDecoration() {
-    return BoxDecoration(
-      color: AppColors.secondaryColor,
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(20.r),
-        topRight: Radius.circular(20.r),
+      decoration: BoxDecoration(
+        color: AppColors.secondaryColor,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.r),
+          topRight: Radius.circular(20.r),
+        ),
       ),
-    );
-  }
-
-  EdgeInsets _buildPadding(BuildContext context) {
-    return EdgeInsets.only(
-      left: 24,
-      right: 24,
-      top: 12,
-      bottom: MediaQuery.of(context).viewInsets.bottom + 30,
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 24,
+        top: 12,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 30,
+      ),
+      child: child,
     );
   }
 }

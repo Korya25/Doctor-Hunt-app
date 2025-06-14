@@ -50,7 +50,7 @@ class SearchInputField extends StatelessWidget {
               color: iconColor ?? AppColors.tertiaryTextColor,
             ),
             hintText: hintText,
-            hintStyle: AppTextStyles.rubik14RegularTiary,
+            hintStyle: AppTextStyles.rubik14RegularTertiary,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6.r),
               borderSide: BorderSide.none,

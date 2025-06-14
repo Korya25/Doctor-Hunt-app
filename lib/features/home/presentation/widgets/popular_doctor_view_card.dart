@@ -18,7 +18,7 @@ class PopularDoctorViewCard extends StatelessWidget {
       elevation: 1.h,
       borderRadius: BorderRadius.circular(8.r),
       child: Container(
-        height: 120.h,
+        height: 110.h,
         decoration: _buildCardDecoration(),
         child: Stack(
           children: [
@@ -37,23 +37,22 @@ class PopularDoctorViewCard extends StatelessWidget {
                 ),
                 Expanded(
                   child: Column(
+                    spacing: 3.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         doctor.name,
-                        style: AppTextStyles.rubik18MediumPrimariy,
+                        style: AppTextStyles.rubik16MediumPrimary,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 4.h),
                       Text(
                         doctor.category,
-                        style: AppTextStyles.rubik14LightTiary,
+                        style: AppTextStyles.rubik14LightTertiary,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 8.h),
                       _buildRatingSection(),
                     ],
                   ),
@@ -91,7 +90,7 @@ class PopularDoctorViewCard extends StatelessWidget {
             ),
             Text(
               '(${doctor.ratingCount})',
-              style: AppTextStyles.rubik16Regulartertiary,
+              style: AppTextStyles.rubik16RegularTertiary,
             ),
           ],
         ),

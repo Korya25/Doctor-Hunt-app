@@ -23,7 +23,7 @@ class LiveDoctorCard extends StatelessWidget {
             // Play Icon
             TransformAnimatedWidget(
               child: SvgPicture.asset(
-                AppIconsSvgs.playVedio,
+                AppIconsSvgs.playVideo,
                 fit: BoxFit.scaleDown,
               ),
             ),

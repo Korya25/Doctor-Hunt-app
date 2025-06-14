@@ -66,7 +66,7 @@ class PopularDoctorDetailCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.secondaryColor,
-      padding: AppPadding.paddingH8V8,
+      padding: AppPadding.h8v8,
       child: Column(
         spacing: 3.h,
         crossAxisAlignment: CrossAxisAlignment.center,
