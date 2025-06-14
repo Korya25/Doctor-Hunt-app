@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/presentation/views/background_scaffold.dart';
+import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -58,9 +59,9 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return BackgroundScaffold(
       body: widget.child,
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onTap,
+      bottomNavigationBar: CustomFadeIn(
+        direction: FadeDirection.up,
+        child: CustomBottomNavBar(currentIndex: _currentIndex, onTap: _onTap),
       ),
     );
   }

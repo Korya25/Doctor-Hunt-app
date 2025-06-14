@@ -24,7 +24,7 @@ class AppIconsSvgs {
   static const String homeBottomNav = 'assets/icons/home_bottom_nav_bar.svg';
   static const String heartBottomNav = 'assets/icons/heart_bottom_nav_bar.svg';
   static const String messageBottomNav =
-      'assets/icons/message_bottom_nav_bar.svg';
+      'assets/icons/meesage_bottom_nav_bar.svg';
   static const String bookBottomNav = 'assets/icons/book_bottom_nav_bar.svg';
 
   // Interactive Elements
