@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:doctor_hunt/core/constant/app_assets.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,10 +17,10 @@ class CustomBottomNavBar extends StatelessWidget {
   });
 
   static const _icons = [
-    AppIconsSvgs.homeBottomNavBar,
-    AppIconsSvgs.heartBottomNavBar,
-    AppIconsSvgs.bookBottomNavBar,
-    AppIconsSvgs.meesageBottomNabBar,
+    AppIconsSvgs.homeBottomNav,
+    AppIconsSvgs.heartBottomNav,
+    AppIconsSvgs.bookBottomNav,
+    AppIconsSvgs.messageBottomNav,
   ];
 
   @override
@@ -40,7 +41,7 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
         ],
       ),
-      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      padding: AppPadding.horizontal30,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(_icons.length, (index) {
@@ -48,7 +49,7 @@ class CustomBottomNavBar extends StatelessWidget {
           return GestureDetector(
             onTap: () => onTap(index),
             child: Container(
-              padding: EdgeInsets.all(12.r),
+              padding: AppPadding.all12,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: isSelected ? Colors.green : Colors.transparent,

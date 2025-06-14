@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,17 +51,14 @@ class AuthTextFormFieldWidget extends StatelessWidget {
       cursorErrorColor: AppColors.tertiaryTextColor,
       textCapitalization: textCapitalization,
       enabled: enabled,
-      style: AppTextStyles.rubik16Lighttertiary,
+      style: AppTextStyles.rubik16LightTertiary,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: AppTextStyles.rubik16Lighttertiary,
+        hintStyle: AppTextStyles.rubik16LightTertiary,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
 
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 16,
-        ),
+        contentPadding: AppPadding.h20v16,
 
         border: buildBorder(),
         enabledBorder: buildBorder(),

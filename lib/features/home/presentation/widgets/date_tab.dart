@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class DateTab extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10.w, horizontal: 10.w),
+        padding: AppPadding.h10v10,
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primaryColor : AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(8),

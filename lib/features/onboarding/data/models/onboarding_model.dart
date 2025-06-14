@@ -17,20 +17,20 @@ class OnboardingModel {
   static List<OnboardingModel> onboardingList = [
     OnboardingModel(
       image: AppImages.onboarding[0],
-      title: AppString.onboardingTitle[0],
-      subtitle: AppString.onboardingSubTitle[0],
+      title: AppString.onboardingTitles[0],
+      subtitle: AppString.onboardingSubtitles[0],
       background: AppImages.onboardingBackground[0],
     ),
     OnboardingModel(
       image: AppImages.onboarding[1],
-      title: AppString.onboardingTitle[1],
-      subtitle: AppString.onboardingSubTitle[1],
+      title: AppString.onboardingTitles[1],
+      subtitle: AppString.onboardingSubtitles[1],
       background: AppImages.onboardingBackground[1],
     ),
     OnboardingModel(
       image: AppImages.onboarding[2],
-      title: AppString.onboardingTitle[2],
-      subtitle: AppString.onboardingSubTitle[2],
+      title: AppString.onboardingTitles[2],
+      subtitle: AppString.onboardingSubtitles[2],
       background: AppImages.onboardingBackground[0],
     ),
   ];

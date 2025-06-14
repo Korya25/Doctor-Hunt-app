@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -59,14 +60,11 @@ class _ReusableBottomSheetFormState extends State<ReusableBottomSheetForm> {
           Text(
             widget.subtitle,
             maxLines: 3,
-            style: AppTextStyles.rubik14RegularTiary,
+            style: AppTextStyles.rubik14RegularTertiary,
           ),
           Gap(32.h),
           ...widget.fields.map(
-            (field) => Padding(
-              padding: EdgeInsets.only(bottom: 16.h),
-              child: field,
-            ),
+            (field) => Padding(padding: AppPadding.bottom16, child: field),
           ),
           Gap(16.h),
           CustomButtom(

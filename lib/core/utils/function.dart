@@ -53,7 +53,7 @@ void handleSignup({
       showSuccessMessage(context, AppString.signUpSuccessfully);
       context.goNamed(AppRoutes.home);
     } else {
-      showErrorMessage(context, AppString.pleaseAgreesignUpTerms);
+      showErrorMessage(context, AppString.pleaseAgreeSignUpTerms);
     }
   }
 }

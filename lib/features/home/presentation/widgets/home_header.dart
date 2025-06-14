@@ -73,7 +73,7 @@ class HomeHeader extends StatelessWidget {
           left: 0,
           right: 0,
           child: Padding(
-            padding: AppPadding.paddingH20,
+            padding: AppPadding.horizontal20,
             child: CustomFadeIn(
               direction: FadeDirection.left,
               duration: 500,
@@ -92,12 +92,12 @@ class HomeHeader extends StatelessWidget {
       children: [
         Text(
           '${AppString.hi} $userName!',
-          style: AppTextStyles.rubikLight20Secondary,
+          style: AppTextStyles.rubik20LightSecondary,
         ),
         SizedBox(height: 4.h),
         Text(
           AppString.findYourDoctor,
-          style: AppTextStyles.rubikBold25Secondary,
+          style: AppTextStyles.rubik25BoldSecondary,
         ),
       ],
     );

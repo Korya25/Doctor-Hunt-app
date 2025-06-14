@@ -41,7 +41,7 @@ class _DateTabsWithSlotsState extends State<DateTabsWithSlots> {
         // Date
         Text(
           DoctorData.dateTabs[_selectedDateTab],
-          style: AppTextStyles.rubik18MediumPrimariy,
+          style: AppTextStyles.rubik18MediumPrimary,
         ),
         TimeSlotsSections(
           selectedTime: _selectedTime,

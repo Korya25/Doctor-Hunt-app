@@ -1,8 +1,8 @@
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/features/home/data/models/chat_message_model.dart';
 import 'package:doctor_hunt/features/home/data/models/fake_user_model.dart';
 import 'package:doctor_hunt/features/home/presentation/widgets/chat_comment_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MessageListLiveChat extends StatelessWidget {
   const MessageListLiveChat({
@@ -22,7 +22,7 @@ class MessageListLiveChat extends StatelessWidget {
 
     return ListView.builder(
       reverse: true,
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      padding: AppPadding.all16,
       itemCount: messages.length,
       itemBuilder: (context, index) {
         final message = messages[index];

@@ -41,8 +41,8 @@ class _OtpVerificationBottomSheetState
     return CustomBottomSheetContainer(
       child: ReusableBottomSheetForm(
         formKey: _formKey,
-        title: AppString.enter4DigitsCode,
-        subtitle: AppString.enter4DigitsCodeSubtitle,
+        title: AppString.enter4DigitCode,
+        subtitle: AppString.enter4DigitCodeSubtitle,
         fields: [
           OtpInputRow(
             controllers: _otpControllers,

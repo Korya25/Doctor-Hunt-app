@@ -18,11 +18,11 @@ class FeaturedDoctorView extends StatelessWidget {
     return BackgroundScaffold(
       body: SafeArea(
         child: Padding(
-          padding: AppPadding.paddingH20V20,
+          padding: AppPadding.h20v20,
           child: Column(
             spacing: 20.h,
             children: [
-              const CustomAppBar(title: AppString.featureDoctor),
+              const CustomAppBar(title: AppString.featuredDoctor),
               SearchInputField(hintText: AppString.searchHint),
               const Expanded(child: _FeaturedDoctorViewBody()),
             ],
@@ -47,7 +47,7 @@ class _FeaturedDoctorViewBody extends StatelessWidget {
         itemCount: doctors.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: AppPadding.all8,
             child: FeaturedDoctorCard(doctorModel: doctors[index]),
           );
         },

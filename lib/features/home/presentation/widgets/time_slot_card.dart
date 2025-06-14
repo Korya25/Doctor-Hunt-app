@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/constant/app_colors.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ class TimeSlotCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 90,
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: AppPadding.vertical12,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isSelected
@@ -31,7 +32,7 @@ class TimeSlotCard extends StatelessWidget {
         ),
         child: Text(
           time,
-          style: AppTextStyles.rubik13MediumMainprimary.copyWith(
+          style: AppTextStyles.rubik13MediumMainPrimary.copyWith(
             color: isSelected
                 ? AppColors.secondaryTextColor
                 : AppColors.primaryColor,

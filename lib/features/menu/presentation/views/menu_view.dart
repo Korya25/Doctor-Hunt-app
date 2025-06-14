@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_hunt/core/constant/app_assets.dart';
 import 'package:doctor_hunt/core/constant/app_colors.dart';
 import 'package:doctor_hunt/core/constant/app_string.dart';
+import 'package:doctor_hunt/core/constant/app_values.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_animate_do.dart';
 import 'package:doctor_hunt/core/presentation/widgets/custom_vertical_list_view.dart';
 import 'package:doctor_hunt/core/resources/app_text_styles.dart';
@@ -20,7 +21,7 @@ class MenuView extends StatelessWidget {
       backgroundColor: const Color(0xff6F7FA1),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          padding: AppPadding.all16,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -60,7 +61,7 @@ class _MenuHeader extends StatelessWidget {
               children: [
                 Text(
                   fakeUsers[0].name,
-                  style: AppTextStyles.rubik16Mediumsecondary,
+                  style: AppTextStyles.rubik16MediumSecondary,
                 ),
                 SizedBox(height: 4.h),
                 Row(
@@ -73,7 +74,7 @@ class _MenuHeader extends StatelessWidget {
                     SizedBox(width: 5.w),
                     Text(
                       fakeUsers[0].phone,
-                      style: AppTextStyles.rubik12Regularsecondary,
+                      style: AppTextStyles.rubik12MediumSecondary,
                     ),
                   ],
                 ),
@@ -98,7 +99,7 @@ class MenuList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<MenuItemModel> menuItems = [
-      MenuItemModel(AppString.mDoctors, AppIconsSvgs.person),
+      MenuItemModel(AppString.myDoctors, AppIconsSvgs.person),
       MenuItemModel(AppString.medicalRecords, AppIconsSvgs.medicalRecords),
       MenuItemModel(AppString.payments, AppIconsSvgs.payments),
       MenuItemModel(AppString.medicineOrders, AppIconsSvgs.medicineOrders),
@@ -127,8 +128,9 @@ class MenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
+      padding: AppPadding.h12v14,
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: Colors.white.withOpacity(0.1),
         borderRadius: BorderRadius.circular(10.r),
       ),
@@ -152,10 +154,10 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.h),
+      padding: AppPadding.vertical10,
       child: Row(
         children: [
-          SvgPicture.asset(AppIconsSvgs.logOut),
+          SvgPicture.asset(AppIconsSvgs.logout),
           SizedBox(width: 8.w),
           Text(
             AppString.logout,
